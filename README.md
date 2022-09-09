@@ -1,1 +1,1 @@
-# FindMyRecyclingIntellijIDEA
+# FindMyRecycling
