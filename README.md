@@ -4,11 +4,11 @@
 
 Design Document
 
-Matthew Caudill
-Matthew Dupont
-Samuel Gehrlich
-Christian Grothaus
-Gabe Phan
+Matthew Caudill  
+Matthew Dupont  
+Samuel Gehrlich  
+Christian Grothaus  
+Gabe Phan  
 
 ## Introduction
 
