@@ -87,6 +87,8 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
       }
     }
 
+## [Project Backlog](https://github.com/Smoofington/FindMyRecyclingIntellijIDEA/projects)
+
 ## Scrum Roles  
 
 UI - Samuel Gehrlich   
