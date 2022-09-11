@@ -69,7 +69,7 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
       "facilityID" : {
          "type" : "int"
        },
-        "facilityName" : {
+       "facilityName" : {
          "type" : "string"
        },
       "facilityPhotos" : {
@@ -83,7 +83,7 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
        },
       "facilityCoordinates" : {
          "type" : "decimal"
-       },
+       }
       }
     }
 
