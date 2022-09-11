@@ -49,14 +49,14 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 
 ### Class Diagram Description
 
-**EnterpriseApplication** - Starts up our SpringBoot application
-**RecyclingCenterFinderController** - Where we interact with the user through endpoints or possibly a webpage.
-**RecyclableMaterial** - Noun class that represents a recyclable material.
-**Facility** - Noun class that represents a recycling facility.
-**Photo** - Noun class that represents a photo.
-**FacilityDAO** - Interface for Facility.
-**RecyclableMaterialDAO** - Interface for RecyclableMaterials.
-**PhotoDAO** - Interface for Photo.
+**EnterpriseApplication** - Starts up our SpringBoot application  
+**RecyclingCenterFinderController** - Where we interact with the user through endpoints or possibly a webpage.  
+**RecyclableMaterial** - Noun class that represents a recyclable material.  
+**Facility** - Noun class that represents a recycling facility.  
+**Photo** - Noun class that represents a photo.  
+**FacilityDAO** - Interface for Facility.  
+**RecyclableMaterialDAO** - Interface for RecyclableMaterials.  
+**PhotoDAO** - Interface for Photo.  
 
 ## Json Schema
 
