@@ -58,7 +58,7 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 **RecyclableMaterialDAO** - Interface for RecyclableMaterials.  
 **PhotoDAO** - Interface for Photo.  
 
-## Json Schema
+## JSON Schema
 
     {
      "type": "object",
