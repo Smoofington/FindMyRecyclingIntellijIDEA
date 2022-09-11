@@ -43,6 +43,8 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 
 ## Class Diagram
 
+![FindMyRecyclingClassDiagram](https://user-images.githubusercontent.com/82420942/189517489-235ab46c-3bcc-47cf-88d3-48c73023a28f.jpg)
+
 ### Class Diagram Description
 
 ## Json Schema
