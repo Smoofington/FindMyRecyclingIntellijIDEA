@@ -63,7 +63,7 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 
 ## JSON Schema  
 
-this is what we plan to export to another app.
+This is what we plan to export to another app.
 
     {
      "type": "object",
