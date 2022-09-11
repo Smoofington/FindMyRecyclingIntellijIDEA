@@ -60,6 +60,33 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 
 ## Json Schema
 
+    {
+     "type": "object",
+     "properties" : {
+        "materialID" : {
+         "type" : "int"
+       },
+      "facilityID" : {
+         "type" : "int"
+       },
+        "facilityName" : {
+         "type" : "string"
+       },
+      "facilityPhotos" : {
+         "type" : "string"
+       },
+      "facilityDetails" : {
+         "type" : "string"
+       },
+      "facilityAddress" : {
+         "type" : "string"
+       },
+      "facilityCoordinates" : {
+         "type" : "decimal"
+       },
+      }
+    }
+
 ## Scrum Roles  
 
 UI - Samuel Gehrlich   
