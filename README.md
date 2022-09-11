@@ -18,8 +18,12 @@ Do you want to recycle, but don’t know where to take it? Have harsh chemicals 
 -	Save centers for easy access
 -	Add centers near you
 
-Users can interact with FindMyRecycling using either a set of RESTful service endpoints or a simple UI, or both.
-## Storyboard
+Users can interact with FindMyRecycling using either a set of RESTful service endpoints, a simple UI, or both.  
+
+## [Storyboard](https://projects.invisionapp.com/prototype/cl7x0sb6b000am501n3cni6cn/play)  
+
+![storyboard1](https://user-images.githubusercontent.com/82420942/189517173-75542ec1-e141-4572-a6b0-243d04a5ff99.png)
+![storyboard2](https://user-images.githubusercontent.com/82420942/189517177-f17d447f-3a39-4579-8bb6-4c3f65687047.png)
 
 ## Functional Requirements
 
@@ -41,6 +45,7 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 
 ### Class Diagram Description
 
+## Json Schema
 
 ## Scrum Roles  
 
