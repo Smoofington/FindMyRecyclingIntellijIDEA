@@ -41,8 +41,15 @@ public class FindMyRecyclingController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+//    @PatchMapping("/facility/{id}/")
+//    public ResponseEntity updateFacilityById(@RequestBody Facility facility
+//    ) {
+//        return new ResponseEntity(HttpStatus.OK);
+//    }
+
 //    @PutMapping("/facility/")
-//    public ResponseEntity addFacility(@RequestBody Facility facility) {
+//    public ResponseEntity updateFacilityById(@RequestBody Facility facility
+//    ) {
 //        return new ResponseEntity(HttpStatus.OK);
 //    }
 }
