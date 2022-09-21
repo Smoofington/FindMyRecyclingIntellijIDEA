@@ -41,6 +41,30 @@ public class Facility {
         return facilityCoordinates;
     }
 
+    public void setFacilityId(Long facilityId) {
+        this.facilityId = facilityId;
+    }
+
+    public void setMaterialId(Long materialId) {
+        this.materialId = materialId;
+    }
+
+    public void setFacilityName(String facilityName) {
+        this.facilityName = facilityName;
+    }
+
+    public void setFacilityPhotos(String facilityPhotos) {
+        this.facilityPhotos = facilityPhotos;
+    }
+
+    public void setFacilityAddress(String facilityAddress) {
+        this.facilityAddress = facilityAddress;
+    }
+
+    public void setFacilityCoordinates(Decimal facilityCoordinates) {
+        this.facilityCoordinates = facilityCoordinates;
+    }
+
     @java.lang.Override
     public java.lang.String toString() {
         return "Facility{" +
