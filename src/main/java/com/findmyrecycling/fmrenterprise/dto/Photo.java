@@ -1,4 +1,4 @@
-package com.findmyrecycling.fmrenterprise;
+package com.findmyrecycling.fmrenterprise.dto;
 
 public class Photo {
 
