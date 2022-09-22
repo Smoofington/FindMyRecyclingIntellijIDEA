@@ -1,4 +1,6 @@
-package com.findmyrecycling.fmrenterprise;
+package com.findmyrecycling.fmrenterprise.dto;
+
+import com.findmyrecycling.fmrenterprise.Decimal;
 
 public class Facility {
     private Long facilityId;
