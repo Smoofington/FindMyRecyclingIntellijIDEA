@@ -1,5 +1,6 @@
 package com.findmyrecycling.fmrenterprise;
 
+import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -7,16 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FindMyRecyclingController {
-
-    /**
-     * Handle the root (/) endpoint and return a start page.
-     * @return
-     */
-    @RequestMapping("/")
-    public String index() {
-        return "start";
-    }
-
     @GetMapping("/facility/")
     public ResponseEntity fetchAllFacilities() {
         return new ResponseEntity(HttpStatus.OK);
@@ -41,15 +32,15 @@ public class FindMyRecyclingController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-//    @PatchMapping("/facility/{id}/")
-//    public ResponseEntity updateFacilityById(@RequestBody Facility facility
-//    ) {
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
+    @PatchMapping("/facility/{id}/")
+    public ResponseEntity updateFacilityById(@RequestBody Facility facility
+    ) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
-//    @PutMapping("/facility/")
-//    public ResponseEntity updateFacilityById(@RequestBody Facility facility
-//    ) {
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
+    @PutMapping("/facility/")
+    public ResponseEntity createFacility(@RequestBody Facility facility
+    ) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
