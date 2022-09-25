@@ -27,7 +27,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: grey;
+    background-color: #D3D3D3;
 }
 
 ul {
@@ -55,4 +55,13 @@ text-decoration: none;
     display: inline-block;
     padding: 15px;
 }
+
+.box {
+    width: 300px;
+    border: 1px solid black;
+    padding: 50px;
+    margin: 20px;
+}
+
+
 
