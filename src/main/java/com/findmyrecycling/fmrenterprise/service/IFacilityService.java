@@ -32,4 +32,6 @@ public interface IFacilityService {
      * @param id is a unique identifier for the facility
      */
     void delete(int id);
+
+    List<Facility> fetchByAddress(String i);
 }
