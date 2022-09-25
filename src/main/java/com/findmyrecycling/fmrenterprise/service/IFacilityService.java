@@ -33,5 +33,12 @@ public interface IFacilityService {
      */
     void delete(int id);
 
-    List<Facility> fetchByAddress(String i);
+    /**
+     * Fetch the facilities by the given address from the list
+     * of facilities.
+     * @param address a unique identifier for the full address.
+     * @return the list of facilities based on the address, or null if no facilities found.
+     */
+    List<Facility> fetchByAddress(String address);
+
 }
