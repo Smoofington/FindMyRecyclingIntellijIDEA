@@ -8,6 +8,17 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FindMyRecyclingController {
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping("/AddFacility.html")
+    public String addFacilityPage() {
+        return "AddFacility";
+    }
+
     @GetMapping("/facility/")
     public ResponseEntity fetchAllFacilities() {
         return new ResponseEntity(HttpStatus.OK);
