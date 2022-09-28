@@ -97,5 +97,22 @@ input[type=submit]:hover {
     background-color: grey;
 }
 
+.box2 {
+    width: 350px;
+    height: 300px;
+    border: 1px solid black;
+    padding 50px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: Arial;
+    font-size: 23px;
+}
+
+.box2 p {
+    text-align: center;
+    margin-top: 135px;
+}
+
 
 
