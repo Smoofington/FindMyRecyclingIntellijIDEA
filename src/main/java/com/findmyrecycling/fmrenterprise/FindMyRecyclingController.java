@@ -44,7 +44,7 @@ public class FindMyRecyclingController {
     }
 
     @PatchMapping("/facility/{id}/")
-    public ResponseEntity updateFacilityById(@RequestBody Facility facility
+    public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
     ) {
         return new ResponseEntity(HttpStatus.OK);
     }
