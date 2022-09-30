@@ -1,22 +1,18 @@
 package com.findmyrecycling.fmrenterprise.dto;
 
-import com.findmyrecycling.fmrenterprise.Decimal;
-
 public class Facility {
     private Long facilityId;
     private Long materialId;
     private String facilityName;
     private String facilityPhotos;
     private String facilityAddress;
-    private Decimal facilityCoordinates;
 
-    public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress, Decimal facilityCoordinates) {
+    public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {
         this.facilityId = facilityId;
         this.materialId = materialId;
         this.facilityName = facilityName;
         this.facilityPhotos = facilityPhotos;
         this.facilityAddress = facilityAddress;
-        this.facilityCoordinates = facilityCoordinates;
     }
 
     public Long getFacilityId() {
@@ -39,10 +35,6 @@ public class Facility {
         return facilityAddress;
     }
 
-    public Decimal getFacilityCoordinates() {
-        return facilityCoordinates;
-    }
-
     public void setFacilityId(Long facilityId) {
         this.facilityId = facilityId;
     }
@@ -63,10 +55,6 @@ public class Facility {
         this.facilityAddress = facilityAddress;
     }
 
-    public void setFacilityCoordinates(Decimal facilityCoordinates) {
-        this.facilityCoordinates = facilityCoordinates;
-    }
-
     @java.lang.Override
     public java.lang.String toString() {
         return "Facility{" +
@@ -75,7 +63,6 @@ public class Facility {
                 ", facilityName='" + facilityName + '\'' +
                 ", facilityPhotos='" + facilityPhotos + '\'' +
                 ", facilityAddress='" + facilityAddress + '\'' +
-                ", facilityCoordinates=" + facilityCoordinates +
                 '}';
     }
 }
