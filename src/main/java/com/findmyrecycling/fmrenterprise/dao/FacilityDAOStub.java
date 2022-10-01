@@ -10,7 +10,13 @@ import java.util.List;
 @Component
 public class FacilityDAOStub implements IFacilityDAO{
 
-    List<Facility> facilities = new ArrayList<>();
+    private List<Facility> facilities = new ArrayList<>() {
+        {
+            add(new Facility(1L, 1L, "Facility", "Photo", "4 Carpenters Run, Blue Ash, OH 45241"));
+            add(new Facility(2L, 2L, "Facility2", "Photo", "6905 Plainfield Rd, Silverton, OH 45236"));
+            add(new Facility(3L, 3L, "Facility3", "Photo", "8041 Hosbrook Rd # 115, Cincinnati, OH 45236"));
+        }
+    };
 
     @Override
     public Facility save(Facility facility) {
@@ -24,12 +30,8 @@ public class FacilityDAOStub implements IFacilityDAO{
     }
 
     @Override
-    public List<Facility> fetchByParams(@Nullable String facilityName, @Nullable String facilityDetails, @Nullable String facilityAddress, @Nullable String facilityCoordinates) {
-        return null;
-    }
-
-    @Override
-    public Facility fetch(int id) {
+    @Nullable
+    public Facility fetchById(int id) {
         for(Facility facility: facilities) {
             if (facility.getFacilityId() == id){
                 return facility;
@@ -40,6 +42,24 @@ public class FacilityDAOStub implements IFacilityDAO{
 
     @Override
     public void delete(int id) {
+        int i = 0;
+        for(Facility facility: facilities) {
+            if (facility.getFacilityId() == id) {
+                facilities.remove(i);
+                break;
+            }
+            i++;
+        }
+    }
 
+    @Override
+    public List<Facility> fetchByGlobalSearch(String term) {
+        List<Facility> matchingFacilities = new ArrayList<>();
+        for(Facility facility: facilities) {
+            if(facility.toString().contains(term)) {
+                matchingFacilities.add(facility);
+            }
+        }
+        return matchingFacilities;
     }
 }

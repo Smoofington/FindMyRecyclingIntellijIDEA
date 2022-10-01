@@ -1,6 +1,9 @@
 package com.findmyrecycling.fmrenterprise.dto;
 
-public class Photo {
+import lombok.Data;
+
+public @Data
+class Photo {
 
     private Long photoId;
     private String localUri;
@@ -13,39 +16,6 @@ public class Photo {
         this.description = description;
         this.dateAdded = dateAdded;
     }
-
-    public Long getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(Long photoId) {
-        this.photoId = photoId;
-    }
-
-    public String getLocalUri() {
-        return localUri;
-    }
-
-    public void setLocalUri(String localUri) {
-        this.localUri = localUri;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDateAdded() {
-        return dateAdded;
-    }
-
-    public void setDateAdded(String dateAdded) {
-        this.dateAdded = dateAdded;
-    }
-
     @java.lang.Override
     public java.lang.String toString() {
         return "Photo{" +

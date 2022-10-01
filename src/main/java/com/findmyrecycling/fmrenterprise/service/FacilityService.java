@@ -1,6 +1,8 @@
 package com.findmyrecycling.fmrenterprise.service;
 
+import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -8,24 +10,30 @@ import java.util.List;
 @Component
 public class FacilityService implements IFacilityService{
 
+    @Autowired
+    IFacilityDAO facilityDAO;
+
+    public FacilityService() {
+
+    }
+
+    public FacilityService(IFacilityDAO facilityDAO) {
+        this.facilityDAO = facilityDAO;
+    }
+
     @Override
     public List<Facility> fetchAll() {
-        return null;
+        return facilityDAO.fetchAll();
     }
 
     @Override
     public Facility fetchById(int id) {
-        return null;
-    }
-
-    @Override
-    public void sendToMaps(Facility facility) {
-
+        return facilityDAO.fetchById(id);
     }
 
     @Override
     public Facility save(Facility facility) {
-        return null;
+        return facilityDAO.save(facility);
     }
 
     @Override
@@ -34,12 +42,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public List<Facility> fetchByAddress(String address) {
-        return null;
-    }
-
-    @Override
-    public List<Facility> fetchByParam(String facilityName, String facilityDetails, String facilityAddress, String facilityCoordinates) {
-        return null;
+    public List<Facility> fetchByGlobalSearch(String term) {
+        return facilityDAO.fetchByGlobalSearch(term);
     }
 }
