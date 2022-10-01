@@ -21,9 +21,9 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/facility/add")
     public String addFacilityPage() {
-        return "AddFacility";
+        return "add-facility";
     }
 
     @GetMapping("/facility/")
