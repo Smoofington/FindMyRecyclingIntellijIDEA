@@ -10,10 +10,10 @@ public interface IFacilityDAO {
 
     List<Facility> fetchAll();
 
-    List<Facility> fetchByParams(@Nullable String facilityName, @Nullable String facilityDetails, @Nullable String facilityAddress, @Nullable String facilityCoordinates);
-
-    Facility fetch(int id);
+    @Nullable
+    Facility fetchById(int id);
 
     void delete(int id);
 
+    List<Facility> fetchByGlobalSearch(String term);
 }

@@ -36,13 +36,10 @@ public class FindMyRecyclingController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/facility/params/", produces = "application/json")
-    public List<Facility> fetchFacilitiesByParam(@RequestParam(required = false, name = "facilityName") String facilityName,
-                                           @RequestParam(required = false, name = "facilityDetails") String facilityDetails,
-                                           @RequestParam(required = false, name = "facilityAddress") String facilityAddress,
-                                           @RequestParam(required = false, name = "facilityCoordinates") String facilityCoordinates
+    @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
+    public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
     ) {
-        List<Facility> facilities = facilityService.fetchByParam(facilityName,facilityDetails,facilityAddress,facilityCoordinates);
+        List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
         return facilities;
     }
 
