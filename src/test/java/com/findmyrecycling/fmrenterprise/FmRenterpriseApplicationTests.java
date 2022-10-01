@@ -48,4 +48,27 @@ class FmRenterpriseApplicationTests {
         }
         assertTrue(AllFacilitiesAreIn45236);
     }
+
+    @Test
+    void saveFacility()
+    {
+        givenFacilityDataIsAvailable();
+        whenAttemptingToSaveNewFacility();
+        thenFacilityShouldBeAddedToSavedFacilities();
+    }
+
+    private void whenAttemptingToSaveNewFacility() {
+        facilityService.save(testFacility);
+    }
+
+    private void thenFacilityShouldBeAddedToSavedFacilities() {
+        boolean facilityFound = false;
+        facilities = facilityService.fetchAll();
+        for(Facility facility: facilities) {
+            if (facility == testFacility) {
+                facilityFound = true;
+            }
+        }
+        assertTrue(facilityFound);
+    }
 }
