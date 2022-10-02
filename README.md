@@ -12,7 +12,7 @@ Gabe Phan
 
 ## Introduction
 
-Do you want to recycle, but don’t know where to take it? Have harsh chemicals that you can’t put in the trash? FindMyRecycling can help you:
+Do you want to recycle, but don’t know where to take it? Do you Have harsh chemicals that you can’t put in the trash? FindMyRecycling can help you:
 
 -	Search for recycling centers near you
 -	Save centers for easy access
@@ -25,26 +25,26 @@ Users can interact with FindMyRecycling using either a set of RESTful service en
 ![storyboard1](https://user-images.githubusercontent.com/82420942/189517173-75542ec1-e141-4572-a6b0-243d04a5ff99.png)
 ![storyboard2](https://user-images.githubusercontent.com/82420942/189521302-1a7bcb93-aa70-435c-828b-df1a572b2d45.png)
 
-## Functional Requirements
+## Functional Requirements:
 
 1.	As a college student, I want to be able to find recycling centers near me that recycle glass, so that I will be able to recycle.  
-### Example  
-**given**: A feed of facility data are available  
-**when**: The user/service specifies the recyclable material as Glass  
-**when**: The user/service specifies the location as 45236  
-**then**: Blue Ash Recreational Center should be in the set of results  
+    ### - Example  
+    **given**: A feed of facility data are available  
+    **when**: The user/service specifies the recyclable material as Glass  
+    **when**: The user/service specifies the location as 45236  
+    **then**: Blue Ash Recreational Center should be in the set of results  
 
 2.	As a user, I want to be able to add a facility that is not already in the database  
-### Example  
-**given**: A user is logged in, and internet connection is available  
-**when**: The user fills out all required fields  
-**then**: The data are saved to the database  
+    ### -Example  
+    **given**: A user is logged in, and internet connection is available  
+    **when**: The user fills out all required fields  
+    **then**: The data are saved to the database  
 
 3.	As a college student, I want to be able to find recycling centers near me, **but** I want to see what materials   facilities can recycle near me, so that I will be able to recycle.  
-### Example  
-**given**: A feed of facility data are available  
-**when**: The user/service specifies the location as 45236  
-**then**: A list of facilities in Blue Ash, OH  
+    ### -Example  
+    **given**: A feed of facility data are available  
+    **when**: The user/service specifies the location as 45236  
+    **then**: A list of facilities in Blue Ash, OH  
 
 ## Class Diagram
 
