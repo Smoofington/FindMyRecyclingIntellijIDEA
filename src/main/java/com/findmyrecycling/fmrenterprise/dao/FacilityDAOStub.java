@@ -17,18 +17,29 @@ public class FacilityDAOStub implements IFacilityDAO{
             add(new Facility(3L, 3L, "Facility3", "Photo", "8041 Hosbrook Rd # 115, Cincinnati, OH 45236"));
         }
     };
-
+    /**
+     * Saves a new facility
+     * @param facility
+     * @return returns the facility?
+     */
     @Override
     public Facility save(Facility facility) {
         facilities.add(facility);
         return facility;
     }
-
+    /**
+     *
+     * @return all facilities
+     */
     @Override
     public List<Facility> fetchAll() {
         return facilities;
     }
-
+    /**
+     *
+     * @param id
+     * @return the facility with the ID or null
+     */
     @Override
     @Nullable
     public Facility fetchById(int id) {
@@ -39,19 +50,26 @@ public class FacilityDAOStub implements IFacilityDAO{
         }
         return null;
     }
-
+    /**
+     * Deletes the facility with the id
+     * @param id
+     */
     @Override
     public void delete(int id) {
         int i = 0;
         for(Facility facility: facilities) {
             if (facility.getFacilityId() == id) {
                 facilities.remove(i);
-                break;
+                return;
             }
             i++;
         }
     }
-
+    /**
+     *
+     * @param term
+     * @return a list of facilities by the term
+     */
     @Override
     public List<Facility> fetchByGlobalSearch(String term) {
         List<Facility> matchingFacilities = new ArrayList<>();
