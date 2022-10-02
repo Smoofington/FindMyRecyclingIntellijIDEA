@@ -1,10 +1,8 @@
 package com.findmyrecycling.fmrenterprise.service;
-
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -14,7 +12,6 @@ public class FacilityService implements IFacilityService{
     IFacilityDAO facilityDAO;
 
     public FacilityService() {
-
     }
 
     public FacilityService(IFacilityDAO facilityDAO) {
@@ -38,7 +35,6 @@ public class FacilityService implements IFacilityService{
 
     @Override
     public void delete(int id) {
-
     }
 
     @Override
