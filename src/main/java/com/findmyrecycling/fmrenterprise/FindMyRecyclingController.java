@@ -21,9 +21,9 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/facility/add")
     public String addFacilityPage() {
-        return "AddFacility";
+        return "add-facility";
     }
 
     @GetMapping("/facility/")
@@ -43,17 +43,32 @@ public class FindMyRecyclingController {
         return facilities;
     }
 
+    /**
+     * Delete a facility given an id
+     * @param id unique id that is tied to a facility
+     * @return
+     */
     @DeleteMapping("/facility/{id}/")
     public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Update a facility given an id
+     * @param id unique id that is tied to a facility
+     * @return
+     */
     @PatchMapping("/facility/{id}/")
     public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
     ) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Create a facility
+     * @param facility
+     * @return
+     */
     @PutMapping("/facility/")
     public ResponseEntity createFacility(@RequestBody Facility facility
     ) {
