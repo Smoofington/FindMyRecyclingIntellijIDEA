@@ -26,6 +26,9 @@ public class FindMyRecyclingController {
         return "AddFacility";
     }
 
+    @RequestMapping("/index.html")
+    public String returnIndex() {return "index";}
+
     @GetMapping("/facility/")
     public ResponseEntity fetchAllFacilities() {
         return new ResponseEntity(HttpStatus.OK);
