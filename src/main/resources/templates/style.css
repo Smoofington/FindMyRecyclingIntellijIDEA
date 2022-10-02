@@ -9,19 +9,17 @@ body {
 }
 
 .header {
-   padding: 10px;
-   text-align: left;
+    text-align: left;
    background: green;
    color: white;
    font-size: 40px;
-   padding-left: 15px;
-   margin-bottom: 0px;
+    padding: 10px 10px 10px 15px;
+    margin-bottom: 0;
 
 }
 
 
 .nav {
-    border: 1px solid #ccc;
     border-width: 1px 0;
     list-style: none;
     margin: 0;
@@ -65,8 +63,7 @@ text-decoration: none;
     height: 200px;
     border: 1px solid black;
     padding: 50px;
-    margin: auto;
-    margin-top: 25px;
+    margin: 25px auto auto;
     font-family: Arial;
     font-size: 23px;
 }
@@ -101,10 +98,8 @@ input[type=submit]:hover {
     width: 350px;
     height: 300px;
     border: 1px solid black;
-    padding 50px;
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    padding: 50px;
+    margin: 25px auto;
     font-family: Arial;
     font-size: 23px;
 }
