@@ -13,21 +13,22 @@
 
     <ul class="nav">
         <li><a href="index.html">Search</a></li>
-        <li><a href="AddFacility.html">Add Faculty</a></li>
+        <li><a href="addfacility.html">Add Faculty</a></li>
     </ul>
 
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
-        <label for="recycleMaterial"></label>
+        <label for="recycle-material">Material: </label>
         <!--<input type="text" id="recycleMaterial" name="recyclematerial" placeholder="Recyclable Material" >-->
-        <select id="recycleMaterial" name="recyclematerial" placeholder="Recyclable Material" >
+        <select id="recycle-material" name="recycle-material">
+            <option>All</option>
             <option>Paper</option>
             <option>Plastic</option>
             <option>Cardboard</option>
         </select>
         <label for="location"></label>
-        <input type="text" id="location" name="recycleLocation" placeholder="Location">
+        <input type="text" id="location" name="recycle-location" placeholder="Location">
 
         <input type="submit" value="Search">
     </div>
