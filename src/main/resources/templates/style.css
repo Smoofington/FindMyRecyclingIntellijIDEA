@@ -114,5 +114,16 @@ input[type=submit]:hover {
     margin-top: 135px;
 }
 
+.findBox {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 50px;
+    margin: auto;
+    margin-top: 60px;
+    font-family: Arial;
+    font-size: 23px;
+}
+
 
 
