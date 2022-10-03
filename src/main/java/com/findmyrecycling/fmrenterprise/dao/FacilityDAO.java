@@ -1,9 +1,7 @@
 package com.findmyrecycling.fmrenterprise.dao;
-
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,6 @@ public class FacilityDAO implements IFacilityDAO{
 
     @Override
     public void delete(int id) {
-
     }
 
     @Override

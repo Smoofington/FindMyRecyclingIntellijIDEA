@@ -1,5 +1,4 @@
 package com.findmyrecycling.fmrenterprise.dto;
-
 import lombok.Data;
 
 public @Data
@@ -10,7 +9,8 @@ class Facility {
     private String facilityPhotos;
     private String facilityAddress;
 
-    public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {
+    public Facility(Long facilityId, Long materialId, String facilityName,
+     String facilityPhotos, String facilityAddress) {
         this.facilityId = facilityId;
         this.materialId = materialId;
         this.facilityName = facilityName;
