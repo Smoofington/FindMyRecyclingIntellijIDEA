@@ -2,7 +2,6 @@ package com.findmyrecycling.fmrenterprise.service;
 
 import com.findmyrecycling.fmrenterprise.dto.Photo;
 
-
 public interface IPhotoService {
     /**
      * Fetch photo using its ID
