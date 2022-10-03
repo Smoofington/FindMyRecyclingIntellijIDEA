@@ -101,10 +101,8 @@ input[type=submit]:hover {
     width: 350px;
     height: 300px;
     border: 1px solid black;
-    padding 50px;
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    padding: 50px;
+    margin: 25px auto;
     font-family: Arial;
     font-size: 23px;
 }
