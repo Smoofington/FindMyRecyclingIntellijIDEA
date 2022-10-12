@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class FindMyRecyclingController {
@@ -19,17 +20,19 @@ public class FindMyRecyclingController {
 
     @RequestMapping("/")
     public String index(Model model) {
+
+        return "index";
+    }
+
+    @RequestMapping("/AddFacility.html")
+    public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
         facility.setFacilityPhotos("");
         facility.setFacilityAddress("5764 Hills Drive");
         facility.setFacilityId(110L);
         facility.setMaterialId(50L);
-        return "index";
-    }
-
-    @RequestMapping("/AddFacility.html")
-    public String addFacilityPage() {
+        model.addAttribute(facility);
         return "AddFacility";
     }
 
