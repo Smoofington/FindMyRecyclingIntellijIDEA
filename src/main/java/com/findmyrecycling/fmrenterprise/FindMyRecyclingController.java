@@ -22,8 +22,9 @@ public class FindMyRecyclingController {
     @RequestMapping("/")
     public String index(Model model) {
         RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
-        recyclableMaterial.setMaterialName("Plastic");
-        recyclableMaterial.setMaterialId(50L);
+        Facility facility = new Facility();
+        recyclableMaterial.setMaterialName("");
+        facility.setFacilityAddress("");
         model.addAttribute(recyclableMaterial);
         return "index";
     }

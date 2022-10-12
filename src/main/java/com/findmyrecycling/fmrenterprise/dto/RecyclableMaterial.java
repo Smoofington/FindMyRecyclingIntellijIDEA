@@ -8,6 +8,8 @@ class RecyclableMaterial {
     private Long materialId;
     private String materialName;
 
+
+
     public RecyclableMaterial(Long materialId, String materialName) {
         this.materialId = materialId;
         this.materialName = materialName;
