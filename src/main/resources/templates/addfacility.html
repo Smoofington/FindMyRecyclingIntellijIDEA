@@ -21,6 +21,7 @@
 
         <p>Add a new Facility</p>
 
+        <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="GET">
         <label for="facilityName"></label>
         <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="facilityName">
 
@@ -33,6 +34,8 @@
         <input type="submit" value="Add Photos">
 
         <input type="submit" value="Submit">
+        </form>
+
     </div>
 
 </body>

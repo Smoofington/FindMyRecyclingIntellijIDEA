@@ -41,6 +41,12 @@ public class FindMyRecyclingController {
         return "AddFacility";
     }
 
+    @RequestMapping("/saveFacility")
+    public String saveFacility(Facility facility) {
+        facilityService.save(facility);
+        return "index";
+    }
+
     @GetMapping("/facility/")
     public ResponseEntity fetchAllFacilities() {
         return new ResponseEntity(HttpStatus.OK);
