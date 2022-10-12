@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,13 @@ public class FindMyRecyclingController {
     IFacilityService facilityService;
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        Facility facility = new Facility();
+        facility.setFacilityName("Bob's Junk-Yard");
+        facility.setFacilityPhotos("");
+        facility.setFacilityAddress("5764 Hills Drive");
+        facility.setFacilityId(110L);
+        facility.setMaterialId(50L);
         return "index";
     }
 
