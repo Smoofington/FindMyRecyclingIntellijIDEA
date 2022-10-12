@@ -1,6 +1,7 @@
 package com.findmyrecycling.fmrenterprise;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
+import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,10 @@ public class FindMyRecyclingController {
 
     @RequestMapping("/")
     public String index(Model model) {
-
+        RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
+        recyclableMaterial.setMaterialName("Plastic");
+        recyclableMaterial.setMaterialId(50L);
+        model.addAttribute(recyclableMaterial);
         return "index";
     }
 
