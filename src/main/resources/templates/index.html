@@ -16,6 +16,7 @@
         <li><a href="AddFacility.html">Add Faculty</a></li>
     </ul>
 
+    <form action="#" th:action="${/facility}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
@@ -26,8 +27,10 @@
         <label for="location"></label>
         <input type="text" id="location" name="recycleLocation" placeholder="Location">
 
-        <input type="submit" value="Search">
+        <input type="submit" value="Search" name="searchTerm">
+
     </div>
+    </form>
 
     <div class="box2">
         <p>List of Facility's</p>

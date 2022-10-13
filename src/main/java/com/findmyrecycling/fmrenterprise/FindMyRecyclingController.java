@@ -48,7 +48,7 @@ public class FindMyRecyclingController {
     }
 
     @GetMapping("/facility/")
-    public ResponseEntity fetchAllFacilities(@RequestParam()) {
+    public ResponseEntity fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm) {
 
         return new ResponseEntity(HttpStatus.OK);
     }
