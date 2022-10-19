@@ -21,18 +21,22 @@
 
         <p>Add a new Facility</p>
 
+        <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="GET">
         <label for="facilityName"></label>
-        <input type="text" id="facilityName" name="facility" placeholder="Facility Name">
+        <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="facilityName">
 
         <label for="facilityAddress"></label>
-        <input type="text" id="facilityAddress" name="facilityaddress" placeholder="Facility Address">
+        <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="facilityAddress">
 
         <label for="facilityDetails"></label>
-        <input type="text" id="facilityDetails" name="facilitydetails" placeholder="Facility Details">
+        <input type="text" id="facilityDetails" name="facilityId" placeholder="Facility Details" th:field="facilityId">
 
-        <input type="submit" value="Add Photos">
+
+         <input type="file" id="myfile" name="photoId" placeholder="Choose Photo" th:field="photoId"/>
 
         <input type="submit" value="Submit">
+        </form>
+
     </div>
 
 </body>

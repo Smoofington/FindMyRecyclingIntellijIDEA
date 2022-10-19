@@ -18,6 +18,10 @@ class Facility {
         this.facilityAddress = facilityAddress;
     }
 
+    public Facility() {
+
+    }
+
     @java.lang.Override
     public java.lang.String toString() {
         return "Facility{" +
