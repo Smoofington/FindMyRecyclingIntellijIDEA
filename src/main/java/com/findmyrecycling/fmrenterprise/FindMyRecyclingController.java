@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +61,7 @@ public class FindMyRecyclingController {
 
     @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
     public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) {
+    ) throws IOException {
         List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
         return facilities;
     }

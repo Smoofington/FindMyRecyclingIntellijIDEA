@@ -5,6 +5,7 @@ import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.List;
 
 @Component
@@ -42,7 +43,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public List<Facility> fetchByGlobalSearch(String term) {
+    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
         return facilityDAO.fetchByGlobalSearch(term);
     }
 }

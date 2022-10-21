@@ -7,6 +7,7 @@ import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,8 +23,7 @@ class FmRenterpriseApplicationTests {
     void contextLoads() {
     }
     @Test
-    void fetchLocationByZipCode_returns45236AsObject()
-    {
+    void fetchLocationByZipCode_returns45236AsObject() throws IOException {
         givenFacilityDataIsAvailable();
         whenSearchLocationWithAddressZipCode45236();
         thenReturnListOfFacilitiesInZipcode45236();
@@ -33,7 +33,7 @@ class FmRenterpriseApplicationTests {
         facilityService = new FacilityService(new FacilityDAOStub());
     }
 
-    private void whenSearchLocationWithAddressZipCode45236() {
+    private void whenSearchLocationWithAddressZipCode45236() throws IOException {
         facilities = facilityService.fetchByGlobalSearch("45236");
     }
 
