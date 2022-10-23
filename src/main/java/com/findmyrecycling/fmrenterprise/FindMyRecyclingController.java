@@ -32,7 +32,7 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/add-facility")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
@@ -41,7 +41,7 @@ public class FindMyRecyclingController {
         facility.setFacilityId(110);
         facility.setMaterialId(50);
         model.addAttribute(facility);
-        return "AddFacility";
+        return "add-facility";
     }
 
     @RequestMapping("/saveFacility")
