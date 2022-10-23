@@ -5,12 +5,12 @@ import lombok.Data;
 public @Data
 class RecyclableMaterial {
 
-    private Long materialId;
+    private int materialId;
     private String materialName;
 
 
 
-    public RecyclableMaterial(Long materialId, String materialName) {
+    public RecyclableMaterial(int materialId, String materialName) {
         this.materialId = materialId;
         this.materialName = materialName;
     }
