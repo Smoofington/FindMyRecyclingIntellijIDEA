@@ -1,7 +1,6 @@
 package com.findmyrecycling.fmrenterprise.service;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
-import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -10,7 +9,7 @@ public interface IFacilityService {
      * Fetch all facilities
      * @return list of facilities or null if none
      */
-    List<Facility> fetchAll();
+    List<Facility> fetchAll(String searchTerm);
 
     /**
      * Fetch all facilities using an ID

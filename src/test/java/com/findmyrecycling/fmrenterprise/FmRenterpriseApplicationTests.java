@@ -63,7 +63,7 @@ class FmRenterpriseApplicationTests {
 
     private void thenFacilityShouldBeAddedToSavedFacilities() {
         boolean facilityFound = false;
-        facilities = facilityService.fetchAll();
+        facilities = facilityService.fetchAll(searchTerm);
         for(Facility facility: facilities) {
             if (facility == testFacility) {
                 facilityFound = true;
