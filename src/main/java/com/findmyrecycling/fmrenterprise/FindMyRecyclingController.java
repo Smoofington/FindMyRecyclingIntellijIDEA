@@ -24,8 +24,10 @@ public class FindMyRecyclingController {
         RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
-        facility.setFacilityAddress("");
+        facility.setFacilityAddress("4433 Cooper Rd, Blue Ash, OH 45242");
+        facility.setFacilityName("Blue Ash Recreation Center");
         model.addAttribute(recyclableMaterial);
+        model.addAttribute(facility);
         return "index";
     }
 
@@ -35,8 +37,8 @@ public class FindMyRecyclingController {
         facility.setFacilityName("Bob's Junk-Yard");
         facility.setFacilityPhotos("");
         facility.setFacilityAddress("5764 Hills Drive");
-        facility.setFacilityId(110L);
-        facility.setMaterialId(50L);
+        facility.setFacilityId(110);
+        facility.setMaterialId(50);
         model.addAttribute(facility);
         return "AddFacility";
     }

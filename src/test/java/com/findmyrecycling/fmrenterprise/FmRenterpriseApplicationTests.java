@@ -16,7 +16,7 @@ class FmRenterpriseApplicationTests {
 
     private IFacilityService facilityService;
     private List<Facility> facilities;
-    private Facility testFacility = new Facility(4L, 5L, "Recyclers", "Photos", "123 Road Drive, Loveland, Ohio 45140");
+    private Facility testFacility = new Facility(4, 5, "Recyclers", "Photos", "123 Road Drive, Loveland, Ohio 45140");
 
     @Test
     void contextLoads() {

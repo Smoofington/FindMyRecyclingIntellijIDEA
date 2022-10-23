@@ -13,10 +13,10 @@
 
     <ul class="nav">
         <li><a href="index.html">Search</a></li>
-        <li><a href="AddFacility.html">Add Faculty</a></li>
+        <li><a href="addfacility.html">Add Facility</a></li>
     </ul>
 
-    <form action="#" th:action="${/facility}" method="GET">
+    <form action="#" th:action="@{/facility}" th:object="${recyclableMaterial}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
@@ -33,7 +33,7 @@
     </form>
 
     <div class="box2">
-        <p>List of Facility's</p>
+        <p>List of Facilities</p>
         <p th:text="${facility}"></p>
 
     </div>
