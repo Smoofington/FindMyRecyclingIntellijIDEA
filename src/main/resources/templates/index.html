@@ -16,20 +16,25 @@
         <li><a href="AddFacility.html">Add Faculty</a></li>
     </ul>
 
+    <form action="#" th:action="${/facility}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
+
         <label for="recycleMaterial"></label>
-        <input type="text" id="recycleMaterial" name="recyclematerial" placeholder="Recyclable Material" >
+        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="*{materialName}">
 
         <label for="location"></label>
         <input type="text" id="location" name="recycleLocation" placeholder="Location">
 
-        <input type="submit" value="Search">
+        <input type="submit" value="Search" name="searchTerm">
+
     </div>
+    </form>
 
     <div class="box2">
-        <p>Map Widget</p>
+        <p>List of Facility's</p>
+        <p th:text="${facility}"></p>
 
     </div>
 

@@ -10,7 +10,7 @@ import java.util.List;
 public interface IFacilityRetrofitDAO {
 
     //TODO update method when we get an actual endpoint
-    @GET()
+    @GET("/FMRJSONdata.md")
     Call<List<Facility>> getFacility(@Query("Name") String facilityName);
 
 }

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,8 +35,7 @@ class FmRenterpriseApplicationTests {
     void contextLoads() {
     }
     @Test
-    void fetchLocationByZipCode_returns45236AsObject()
-    {
+    void fetchLocationByZipCode_returns45236AsObject() throws IOException {
         givenFacilityDataIsAvailable();
         whenSearchLocationWithAddressZipCode45236();
         thenReturnListOfFacilitiesInZipcode45236();
@@ -45,7 +45,7 @@ class FmRenterpriseApplicationTests {
         facilityService = new FacilityService(new FacilityDAOStub());
     }
 
-    private void whenSearchLocationWithAddressZipCode45236() {
+    private void whenSearchLocationWithAddressZipCode45236() throws IOException {
         facilities = facilityService.fetchByGlobalSearch("45236");
     }
 

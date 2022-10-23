@@ -3,6 +3,7 @@ package com.findmyrecycling.fmrenterprise.service;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IFacilityService {
@@ -37,5 +38,5 @@ public interface IFacilityService {
      * @param term String to check against all params of facilities
      * @return a list of facilities that match the params
      */
-    List<Facility> fetchByGlobalSearch(String term);
+    List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }

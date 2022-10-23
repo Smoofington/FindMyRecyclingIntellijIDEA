@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static String BASE_URL = "";
+    private static String BASE_URL = "FMRJSONdata.md";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
