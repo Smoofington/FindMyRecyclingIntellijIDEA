@@ -3,6 +3,7 @@ package com.findmyrecycling.fmrenterprise.dao;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IFacilityDAO {
@@ -15,5 +16,5 @@ public interface IFacilityDAO {
 
     void delete(int id);
 
-    List<Facility> fetchByGlobalSearch(String term);
+    List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }

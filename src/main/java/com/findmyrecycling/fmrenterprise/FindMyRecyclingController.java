@@ -62,7 +62,7 @@ public class FindMyRecyclingController {
 
     @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
     public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) {
+    ) throws IOException {
         List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
         return facilities;
     }
