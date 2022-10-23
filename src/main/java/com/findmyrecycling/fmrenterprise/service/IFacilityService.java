@@ -14,9 +14,9 @@ public interface IFacilityService {
     List<Facility> fetchAll();
 
     /**
-     * Fetch all facilities using an ID
+     * Fetch facility using an ID
      * @param id a unique identifier for a facility
-     * @return list of facilities or null if none
+     * @return facility or null if none
      */
     Facility fetchById(int id);
 
