@@ -80,6 +80,7 @@ class FmRenterpriseApplicationTests {
         Facility createdFacility = facilityService.save(testFacility);
         assertEquals(createdFacility, testFacility);
         verify(facilityDAO, atLeastOnce()).save(testFacility);
+
     }
 
     private void thenReturnFacilityWithID4() {

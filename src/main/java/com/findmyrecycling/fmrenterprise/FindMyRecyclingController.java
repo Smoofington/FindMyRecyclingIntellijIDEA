@@ -49,9 +49,10 @@ public class FindMyRecyclingController {
     }
 
     @GetMapping("/facility/")
-    public ResponseEntity fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm) {
-
-        return new ResponseEntity(HttpStatus.OK);
+    public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
+        List<Facility> facilities = facilityService.fetchAll(searchTerm);
+        model.addAttribute("facilities", facilities);
+        return "facilities";
     }
 
     @GetMapping("/facility/{id}/")
