@@ -74,22 +74,11 @@ class FmRenterpriseApplicationTests {
     }
 
     private void thenFacilityShouldBeAddedToSavedFacilities() {
-        Mockito.when(facilityDAO.save(testFacility)).thenReturn(testFacility);
         facilityService = new FacilityService(facilityDAO);
 
         Facility createdFacility = facilityService.save(testFacility);
         assertEquals(createdFacility, testFacility);
         verify(facilityDAO, atLeastOnce()).save(testFacility);
-    }
-
-    @Test
-    void fetchFacilityByID_returnsFacilityObject() {
-        givenFacilityDataIsAvailable();
-        whenFetchingFacilityWithID4();
-        thenReturnFacilityWithID4();
-    }
-
-    private void whenFetchingFacilityWithID4() {
     }
 
     private void thenReturnFacilityWithID4() {
