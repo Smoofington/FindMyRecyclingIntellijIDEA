@@ -15,7 +15,7 @@ import java.util.List;
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {
-        return null;
+        return facility;
     }
 
     @Override
