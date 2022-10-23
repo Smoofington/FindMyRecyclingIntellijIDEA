@@ -81,4 +81,25 @@ class FmRenterpriseApplicationTests {
         assertEquals(createdFacility, testFacility);
         verify(facilityDAO, atLeastOnce()).save(testFacility);
     }
+
+    @Test
+    void fetchFacilityByID_returnsFacilityObject() {
+        givenFacilityDataIsAvailable();
+        whenFetchingFacilityWithID4();
+        thenReturnFacilityWithID4();
+    }
+
+    private void whenFetchingFacilityWithID4() {
+    }
+
+    private void thenReturnFacilityWithID4() {
+        int idToFetch = 4;
+        Mockito.when(facilityDAO.fetchById(idToFetch)).thenReturn(testFacility);
+        facilityService = new FacilityService(facilityDAO);
+
+        Facility fetchedFacility = facilityService.fetchById(4);
+        assertEquals(fetchedFacility.getFacilityId(), idToFetch);
+        verify(facilityDAO, atLeastOnce()).fetchById(idToFetch);
+    }
+
 }
