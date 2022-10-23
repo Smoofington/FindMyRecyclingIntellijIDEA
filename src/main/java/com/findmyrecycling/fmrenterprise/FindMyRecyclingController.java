@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -50,9 +51,10 @@ public class FindMyRecyclingController {
     }
 
     @GetMapping("/facility/")
-    public ResponseEntity fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm) {
-
-        return new ResponseEntity(HttpStatus.OK);
+    public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
+        List<Facility> facilities = facilityService.fetchAll(searchTerm);
+        model.addAttribute("facilities", facilities);
+        return "facilities";
     }
 
     @GetMapping("/facility/{id}/")
@@ -62,7 +64,7 @@ public class FindMyRecyclingController {
 
     @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
     public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) {
+    ) throws IOException {
         List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
         return facilities;
     }

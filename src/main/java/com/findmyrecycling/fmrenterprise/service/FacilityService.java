@@ -3,11 +3,12 @@ package com.findmyrecycling.fmrenterprise.service;
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
-@Component
+@Service
 public class FacilityService implements IFacilityService{
 
     @Autowired
@@ -22,7 +23,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public List<Facility> fetchAll() {
+    public List<Facility> fetchAll(String searchTerm) {
         return facilityDAO.fetchAll();
     }
 
@@ -42,7 +43,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public List<Facility> fetchByGlobalSearch(String term) {
+    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
         return facilityDAO.fetchByGlobalSearch(term);
     }
 }
