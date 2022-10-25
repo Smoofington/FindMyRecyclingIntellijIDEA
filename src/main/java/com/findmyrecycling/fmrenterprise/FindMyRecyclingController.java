@@ -20,6 +20,11 @@ public class FindMyRecyclingController {
     @Autowired
     IFacilityService facilityService;
 
+    /**
+     * Returns index
+     * @param model
+     * @return
+     */
     @RequestMapping("/")
     public String index(Model model) {
         RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
@@ -29,10 +34,22 @@ public class FindMyRecyclingController {
         model.addAttribute(recyclableMaterial);
         return "index";
     }
+
+    /**
+     * Error Page Mapping
+     * is this unnecessary?
+     * @return
+     */
     @RequestMapping(value="/error", method = RequestMethod.GET)
     public String errorPage(){
         return "error";
     }
+
+    /**
+     * Adds a facility
+     * @param model
+     * @return
+     */
     @RequestMapping("/AddFacility.html")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
@@ -45,12 +62,23 @@ public class FindMyRecyclingController {
         return "AddFacility";
     }
 
+    /**
+     * Saves the facility
+     * @param facility
+     * @return
+     */
     @RequestMapping("/saveFacility")
     public String saveFacility(Facility facility) {
         facilityService.save(facility);
         return "index";
     }
 
+    /**
+     * gets all facilities with the search term
+     * @param searchTerm
+     * @param model
+     * @return
+     */
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
         List<Facility> facilities = facilityService.fetchAll(searchTerm);
@@ -58,11 +86,22 @@ public class FindMyRecyclingController {
         return "facilities";
     }
 
+    /**
+     * Gets the facility by ID
+     * @param id
+     * @return
+     */
     @GetMapping("/facility/{id}/")
     public ResponseEntity fetchFacilityById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Gets facilities with the term
+     * @param term
+     * @return
+     * @throws IOException
+     */
     @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
     public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
     ) throws IOException {
@@ -70,17 +109,33 @@ public class FindMyRecyclingController {
         return facilities;
     }
 
+    /**
+     * Delete facility with ID
+     * @param id
+     * @return
+     */
     @DeleteMapping("/facility/{id}/")
     public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Updates the facility with the id
+     * @param facility
+     * @param id
+     * @return
+     */
     @PatchMapping("/facility/{id}/")
     public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
     ) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Creates a facility
+     * @param facility
+     * @return
+     */
     @PutMapping("/facility/")
     public ResponseEntity createFacility(@RequestBody Facility facility
     ) {
