@@ -4,12 +4,12 @@ import lombok.Data;
 
 public @Data
 class Facility {
+
+
     private Long facilityId;
     private Long materialId;
     private String facilityName;
     private String facilityPhotos;
-
-
     private String facilityAddress;
 
     public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {
@@ -33,5 +33,24 @@ class Facility {
                 ", facilityPhotos='" + facilityPhotos + '\'' +
                 ", facilityAddress='" + facilityAddress + '\'' +
                 '}';
+    }
+    public Long getFacilityId() {
+        return facilityId;
+    }
+
+    public Long getMaterialId() {
+        return materialId;
+    }
+
+    public String getFacilityName() {
+        return facilityName;
+    }
+
+    public String getFacilityPhotos() {
+        return facilityPhotos;
+    }
+
+    public String getFacilityAddress() {
+        return facilityAddress;
     }
 }

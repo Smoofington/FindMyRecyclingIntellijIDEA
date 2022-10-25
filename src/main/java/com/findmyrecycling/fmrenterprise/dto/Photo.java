@@ -11,11 +11,28 @@ class Photo {
     private String description;
     private String dateAdded;
 
+
+
     public Photo(int photoId, String localUri, String description, String dateAdded) {
         this.photoId = photoId;
         this.localUri = localUri;
         this.description = description;
         this.dateAdded = dateAdded;
+    }
+    public int getPhotoId() {
+        return photoId;
+    }
+
+    public String getLocalUri() {
+        return localUri;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getDateAdded() {
+        return dateAdded;
     }
     @java.lang.Override
     public java.lang.String toString() {

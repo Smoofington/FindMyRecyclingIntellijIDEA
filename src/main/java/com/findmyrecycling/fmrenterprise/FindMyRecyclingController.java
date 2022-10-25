@@ -29,7 +29,10 @@ public class FindMyRecyclingController {
         model.addAttribute(recyclableMaterial);
         return "index";
     }
-
+    @RequestMapping(value="/error", method = RequestMethod.GET)
+    public String errorPage(){
+        return "error";
+    }
     @RequestMapping("/AddFacility.html")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
