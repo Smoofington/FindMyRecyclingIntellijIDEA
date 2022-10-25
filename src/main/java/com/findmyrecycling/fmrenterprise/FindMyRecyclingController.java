@@ -25,23 +25,21 @@ public class FindMyRecyclingController {
         RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
-        facility.setFacilityAddress("4433 Cooper Rd, Blue Ash, OH 45242");
-        facility.setFacilityName("Blue Ash Recreation Center");
+        facility.setFacilityAddress("");
         model.addAttribute(recyclableMaterial);
-        model.addAttribute(facility);
         return "index";
     }
 
-    @RequestMapping("/add-facility")
+    @RequestMapping("/AddFacility.html")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
         facility.setFacilityPhotos("");
         facility.setFacilityAddress("5764 Hills Drive");
-        facility.setFacilityId(110);
-        facility.setMaterialId(50);
+        facility.setFacilityId(110L);
+        facility.setMaterialId(50L);
         model.addAttribute(facility);
-        return "add-facility";
+        return "AddFacility";
     }
 
     @RequestMapping("/saveFacility")
@@ -50,10 +48,6 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping(value="/error", method = RequestMethod.GET)
-    public String errorPage(){
-        return "error";
-    }
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
         List<Facility> facilities = facilityService.fetchAll(searchTerm);

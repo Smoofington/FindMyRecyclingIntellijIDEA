@@ -5,21 +5,6 @@ import lombok.Data;
 public @Data
 class Photo {
 
-    public int getPhotoId() {
-        return photoId;
-    }
-
-    public String getLocalUri() {
-        return localUri;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getDateAdded() {
-        return dateAdded;
-    }
 
     private int photoId;
     private String localUri;

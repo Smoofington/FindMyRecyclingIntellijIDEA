@@ -4,34 +4,15 @@ import lombok.Data;
 
 public @Data
 class Facility {
-    private int facilityId;
-    private int materialId;
+    private Long facilityId;
+    private Long materialId;
     private String facilityName;
     private String facilityPhotos;
 
-    public int getFacilityId() {
-        return facilityId;
-    }
-
-    public int getMaterialId() {
-        return materialId;
-    }
-
-    public String getFacilityName() {
-        return facilityName;
-    }
-
-    public String getFacilityPhotos() {
-        return facilityPhotos;
-    }
-
-    public String getFacilityAddress() {
-        return facilityAddress;
-    }
 
     private String facilityAddress;
 
-    public Facility(int facilityId, int materialId, String facilityName, String facilityPhotos, String facilityAddress) {
+    public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {
         this.facilityId = facilityId;
         this.materialId = materialId;
         this.facilityName = facilityName;

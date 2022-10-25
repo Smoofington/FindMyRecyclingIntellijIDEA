@@ -12,9 +12,9 @@ public class FacilityDAOStub implements IFacilityDAO{
 
     private List<Facility> facilities = new ArrayList<>() {
         {
-            add(new Facility(1, 1, "Facility", "Photo", "4 Carpenters Run, Blue Ash, OH 45241"));
-            add(new Facility(2, 2, "Facility2", "Photo", "6905 Plainfield Rd, Silverton, OH 45236"));
-            add(new Facility(3, 3, "Facility3", "Photo", "8041 Hosbrook Rd # 115, Cincinnati, OH 45236"));
+            add(new Facility(1L, 1L, "Facility", "Photo", "4 Carpenters Run, Blue Ash, OH 45241"));
+            add(new Facility(2L, 2L, "Facility2", "Photo", "6905 Plainfield Rd, Silverton, OH 45236"));
+            add(new Facility(3L, 3L, "Facility3", "Photo", "8041 Hosbrook Rd # 115, Cincinnati, OH 45236"));
         }
     };
 
