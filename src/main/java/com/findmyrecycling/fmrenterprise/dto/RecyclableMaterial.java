@@ -16,8 +16,17 @@ class RecyclableMaterial {
     }
 
     public RecyclableMaterial() {
-        this.materialId = materialId;
-        this.materialName = materialName;
+        //You are trying to set the class variables to themselves
+        //this.materialId = materialId;
+        //this.materialName = materialName;
+    }
+
+    public int getMaterialId() {
+        return materialId;
+    }
+
+    public String getMaterialName() {
+        return materialName;
     }
 
     @java.lang.Override

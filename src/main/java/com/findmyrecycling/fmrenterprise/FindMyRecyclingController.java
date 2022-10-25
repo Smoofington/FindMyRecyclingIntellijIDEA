@@ -50,6 +50,10 @@ public class FindMyRecyclingController {
         return "index";
     }
 
+    @RequestMapping(value="/error", method = RequestMethod.GET)
+    public String errorPage(){
+        return "error";
+    }
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
         List<Facility> facilities = facilityService.fetchAll(searchTerm);
