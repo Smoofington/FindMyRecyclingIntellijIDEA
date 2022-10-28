@@ -50,7 +50,7 @@ public class FindMyRecyclingController {
 
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
-        List<Facility> facilities = facilityService.fetchAll(searchTerm);
+        List<Facility> facilities = facilityService.fetchAll();
         model.addAttribute("facilities", facilities);
         return "facilities";
     }
