@@ -23,7 +23,7 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/facility")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         model.addAttribute("facility", facility);
