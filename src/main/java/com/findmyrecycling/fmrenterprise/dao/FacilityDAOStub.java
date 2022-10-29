@@ -4,11 +4,12 @@ import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class FacilityDAOStub implements IFacilityDAO{
+public class FacilityDAOStub implements IFacilityDAO {
 
     private List<Facility> facilities = new ArrayList<>() {
         {
@@ -29,7 +30,6 @@ public class FacilityDAOStub implements IFacilityDAO{
         return facilities;
     }
 
-    @Override
     @Nullable
     public Facility fetchById(int id) {
         for(Facility facility: facilities) {

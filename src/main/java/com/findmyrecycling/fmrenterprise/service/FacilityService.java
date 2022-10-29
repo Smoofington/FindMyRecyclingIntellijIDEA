@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class FacilityService implements IFacilityService{
+public class FacilityService implements IFacilityService {
 
     @Autowired
     IFacilityDAO facilityDAO;
@@ -22,6 +22,11 @@ public class FacilityService implements IFacilityService{
         this.facilityDAO = facilityDAO;
     }
 
+    /**
+     * Fetch all facilities.
+     *
+     * @return list of facilities or null if none
+     */
     @Override
     public List<Facility> fetchAll(String searchTerm) {
         return facilityDAO.fetchAll();

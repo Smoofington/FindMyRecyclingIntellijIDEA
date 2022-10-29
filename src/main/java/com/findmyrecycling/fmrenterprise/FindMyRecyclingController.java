@@ -1,7 +1,6 @@
 package com.findmyrecycling.fmrenterprise;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
-import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class FindMyRecyclingController {
@@ -32,8 +30,13 @@ public class FindMyRecyclingController {
         return "facility";
     }
 
-    @RequestMapping("/saveFacility")
-    public String saveFacility(Facility facility) {
+    /**
+     * Create a facility.
+     * @param facility facility to be created.
+     * @return Redirects to the index.html page (home page).
+     */
+    @PostMapping(value = "/facility/add/", consumes = "application/json", produces = "application/json")
+    public String saveFacility(@ModelAttribute("facility") Facility facility) {
         facilityService.save(facility);
         return "index";
     }
@@ -57,19 +60,15 @@ public class FindMyRecyclingController {
     }
 
     @DeleteMapping("/facility/{id}/")
-    public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
+    public ResponseEntity deleteFacilityById(
+            @PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PatchMapping("/facility/{id}/")
-    public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
-    ) {
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @PutMapping("/facility/")
-    public ResponseEntity createFacility(@RequestBody Facility facility
-    ) {
+    public ResponseEntity updateFacilityById(
+            @RequestBody Facility facility,
+            @PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 }
