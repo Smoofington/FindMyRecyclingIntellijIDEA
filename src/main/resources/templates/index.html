@@ -13,12 +13,12 @@
 
     <div th:replace="/fragments/nav"></div>
 
-    <form th:action="@{/facilities/}" th:object="${facility}" method="POST">
+    <form th:action="@{/facilities/search/}" method="POST">
         <div class="box">
             <p>Search for a recycling facility center near you!</p>
 
             <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material">
-            <input type="text" id="location" name="recycleLocation" placeholder="Location" th:value="*{facilityAddress}">
+            <input type="text" id="location" name="recycleLocation" placeholder="Location" th:value="${searchTerm}">
 
             <input type="submit" value="Search" name="searchTerm">
 

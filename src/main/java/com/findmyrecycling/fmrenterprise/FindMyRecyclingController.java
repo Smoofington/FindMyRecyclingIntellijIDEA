@@ -21,12 +21,7 @@ public class FindMyRecyclingController {
     IFacilityService facilityService;
 
     @RequestMapping("/")
-    public String index(Model model) {
-        RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
-        Facility facility = new Facility();
-        recyclableMaterial.setMaterialName("");
-        facility.setFacilityAddress("");
-        model.addAttribute(recyclableMaterial);
+    public String index() {
         return "index";
     }
 
@@ -48,11 +43,17 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @GetMapping("/facility/")
-    public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
-        List<Facility> facilities = facilityService.fetchAll(searchTerm);
-        model.addAttribute("facilities", facilities);
-        return "facilities";
+    @GetMapping("/facilities/")
+    public List<Facility> fetchAllFacilities() {
+        return facilityService.fetchAll();
+    }
+
+    @PostMapping(value = "/facilities/search/", produces = "application/json")
+    public String fetchFacilitiesByTerm(
+            @PathParam("searchTerm") String searchTerm, Model model) throws IOException {
+        model.addAttribute("searchTerm", searchTerm);
+        model.addAttribute("facilityList", facilityService.fetchAll(searchTerm));
+        return "index";
     }
 
     @GetMapping("/facility/{id}/")
