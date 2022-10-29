@@ -53,7 +53,7 @@ public class FacilityDAOStub implements IFacilityDAO{
     }
 
     @Override
-    public List<Facility> fetchByGlobalSearch(String term) {
+    public List<Facility> fetchAll(String term) {
         List<Facility> matchingFacilities = new ArrayList<>();
         for(Facility facility: facilities) {
             if(facility.toString().contains(term)) {

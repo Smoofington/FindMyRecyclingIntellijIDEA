@@ -11,6 +11,8 @@ public interface IFacilityDAO {
 
     List<Facility> fetchAll();
 
+    List<Facility> fetchAll(String term) throws IOException;
+
     @Nullable
     Facility fetchById(int id);
 

@@ -28,6 +28,11 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
+    public List<Facility> fetchAll(String term) throws IOException {
+        return facilityDAO.fetchAll(term);
+    }
+
+    @Override
     public Facility fetchById(int id) {
         return facilityDAO.fetchById(id);
     }

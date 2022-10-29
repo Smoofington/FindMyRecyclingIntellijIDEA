@@ -24,6 +24,14 @@ public class FacilityDAO implements IFacilityDAO{
     }
 
     @Override
+    public List<Facility> fetchAll(String term) throws IOException {
+        Retrofit retrofitInstance = RetrofitClientInstance.getRetrofitInstance();
+        IFacilityRetrofitDAO facilityRetrofitDAO = retrofitInstance.create(IFacilityRetrofitDAO.class);
+        Call<List<Facility>> allFacilities = facilityRetrofitDAO.getFacility(term);
+        Response<List<Facility>> execute = allFacilities.execute();
+        return execute.body();
+    }
+
     @Nullable
     public Facility fetchById(int id) {
         return null;
