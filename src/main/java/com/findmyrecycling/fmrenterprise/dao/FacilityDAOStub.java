@@ -4,7 +4,6 @@ import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class FacilityDAOStub implements IFacilityDAO {
 
     @Override
     public List<Facility> fetchAll() {
-        return facilities;
+        return null;
     }
 
     @Nullable

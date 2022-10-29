@@ -28,7 +28,7 @@ public class FacilityService implements IFacilityService {
      * @return list of facilities or null if none
      */
     @Override
-    public List<Facility> fetchAll(String searchTerm) {
+    public List<Facility> fetchAll() {
         return facilityDAO.fetchAll();
     }
 
