@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@NoArgsConstructor
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {
