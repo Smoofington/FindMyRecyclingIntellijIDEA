@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class FacilityService implements IFacilityService{
+public class FacilityService implements IFacilityService {
 
     @Autowired
     IFacilityDAO facilityDAO;
@@ -22,9 +22,19 @@ public class FacilityService implements IFacilityService{
         this.facilityDAO = facilityDAO;
     }
 
+    /**
+     * Fetch all facilities.
+     *
+     * @return list of facilities or null if none
+     */
     @Override
-    public List<Facility> fetchAll(String searchTerm) {
+    public List<Facility> fetchAll() {
         return facilityDAO.fetchAll();
+    }
+
+    @Override
+    public List<Facility> fetchAll(String term) throws IOException {
+        return facilityDAO.fetchAll(term);
     }
 
     @Override
@@ -40,10 +50,5 @@ public class FacilityService implements IFacilityService{
     @Override
     public void delete(int id) {
 
-    }
-
-    @Override
-    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
-        return facilityDAO.fetchByGlobalSearch(term);
     }
 }

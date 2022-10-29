@@ -11,10 +11,10 @@ public interface IFacilityDAO {
 
     List<Facility> fetchAll();
 
+    List<Facility> fetchAll(String term) throws IOException;
+
     @Nullable
     Facility fetchById(int id);
 
     void delete(int id);
-
-    List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }

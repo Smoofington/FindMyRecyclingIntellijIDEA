@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class FacilityDAOStub implements IFacilityDAO{
+public class FacilityDAOStub implements IFacilityDAO {
 
     private List<Facility> facilities = new ArrayList<>() {
         {
@@ -26,10 +26,9 @@ public class FacilityDAOStub implements IFacilityDAO{
 
     @Override
     public List<Facility> fetchAll() {
-        return facilities;
+        return null;
     }
 
-    @Override
     @Nullable
     public Facility fetchById(int id) {
         for(Facility facility: facilities) {
@@ -53,7 +52,7 @@ public class FacilityDAOStub implements IFacilityDAO{
     }
 
     @Override
-    public List<Facility> fetchByGlobalSearch(String term) {
+    public List<Facility> fetchAll(String term) {
         List<Facility> matchingFacilities = new ArrayList<>();
         for(Facility facility: facilities) {
             if(facility.toString().contains(term)) {
