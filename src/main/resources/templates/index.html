@@ -11,35 +11,24 @@
     <p>FindMyRecycling</p>
     </div>
 
-    <ul class="nav">
-        <li><a href="index.html">Search</a></li>
-        <li><a href="AddFacility.html">Add Faculty</a></li>
-    </ul>
+    <div th:replace="/fragments/nav"></div>
 
-    <form action="#" th:action="@{/facility}" method="GET">
-    <div class="box">
-        <p>Search for a recycling facility center near you!</p>
+    <form th:action="@{/facilities/}" th:object="${facility}" method="POST">
+        <div class="box">
+            <p>Search for a recycling facility center near you!</p>
 
+            <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material">
+            <input type="text" id="location" name="recycleLocation" placeholder="Location" th:value="*{facilityAddress}">
 
-        <label for="recycleMaterial"></label>
-        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="*{recyclableMaterial}">
+            <input type="submit" value="Search" name="searchTerm">
 
-        <label for="location"></label>
-        <input type="text" id="location" name="recycleLocation" placeholder="Location">
-
-        <input type="submit" value="Search" name="searchTerm">
-
-    </div>
+        </div>
     </form>
 
     <div class="box2">
         <p>List of Facility's</p>
-        <p th:text="${facility}"></p>
-
+        <p th:text="${facilityList}"></p>
     </div>
-
-
-
 
 </body>
 </html>
