@@ -41,15 +41,4 @@ public class FacilityDAO implements IFacilityDAO{
     public void delete(int id) {
 
     }
-
-    @Override
-    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
-        Retrofit retrofitInstance = RetrofitClientInstance.getRetrofitInstance();
-        IFacilityRetrofitDAO facilityRetrofitDAO = retrofitInstance.create(IFacilityRetrofitDAO.class);
-        Call<List<Facility>> allFacilities = facilityRetrofitDAO.getFacility(term);
-        Response<List<Facility>> execute = allFacilities.execute();
-        List<Facility> facilities = execute.body();
-        return facilities;
-    }
-
 }

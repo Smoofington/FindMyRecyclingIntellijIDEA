@@ -61,13 +61,6 @@ public class FindMyRecyclingController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
-    public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) throws IOException {
-        List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
-        return facilities;
-    }
-
     @DeleteMapping("/facility/{id}/")
     public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);

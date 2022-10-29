@@ -46,9 +46,4 @@ public class FacilityService implements IFacilityService{
     public void delete(int id) {
 
     }
-
-    @Override
-    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
-        return facilityDAO.fetchByGlobalSearch(term);
-    }
 }

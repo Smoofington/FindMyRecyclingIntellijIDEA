@@ -38,11 +38,4 @@ public interface IFacilityService {
      * @param id is a unique identifier for the facility
      */
     void delete(int id);
-
-    /**
-     * Fetch the facilities by given params.
-     * @param term String to check against all params of facilities
-     * @return a list of facilities that match the params
-     */
-    List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }
