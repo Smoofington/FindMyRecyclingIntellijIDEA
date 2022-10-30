@@ -1,6 +1,5 @@
 package com.findmyrecycling.fmrenterprise;
 
-import com.findmyrecycling.fmrenterprise.dao.FacilityDAO;
 import com.findmyrecycling.fmrenterprise.dao.FacilityDAOStub;
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
@@ -53,10 +52,10 @@ class FmRenterpriseApplicationTests {
         boolean AllFacilitiesAreIn45236 = true;
         for (Facility facility: facilities)
         {
-             if(facility.getFacilityAddress().indexOf("45236") == -1)
-             {
-                 AllFacilitiesAreIn45236 = false;
-             }
+            if (!facility.getFacilityAddress().contains("45236")) {
+                AllFacilitiesAreIn45236 = false;
+                break;
+            }
         }
         assertTrue(AllFacilitiesAreIn45236);
     }
@@ -81,16 +80,6 @@ class FmRenterpriseApplicationTests {
         assertEquals(createdFacility, testFacility);
         verify(facilityDAO, atLeastOnce()).save(testFacility);
 
-    }
-
-    private void thenReturnFacilityWithID4() {
-        int idToFetch = 4;
-        Mockito.when(facilityDAO.fetchById(idToFetch)).thenReturn(testFacility);
-        facilityService = new FacilityService(facilityDAO);
-
-        Facility fetchedFacility = facilityService.fetchById(4);
-        assertEquals(fetchedFacility.getFacilityId(), idToFetch);
-        verify(facilityDAO, atLeastOnce()).fetchById(idToFetch);
     }
 
 }
