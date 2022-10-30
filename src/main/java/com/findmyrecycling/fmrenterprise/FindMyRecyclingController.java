@@ -26,7 +26,8 @@ public class FindMyRecyclingController {
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
         facility.setFacilityAddress("");
-        model.addAttribute(recyclableMaterial);
+        model.addAttribute("recyclableMaterial", recyclableMaterial);
+        model.addAttribute("facility", facility);
         return "index";
     }
 

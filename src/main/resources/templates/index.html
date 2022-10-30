@@ -16,14 +16,14 @@
         <li><a href="AddFacility.html">Add Faculty</a></li>
     </ul>
 
-    <form action="#" th:action="${/facility}" method="GET">
+    <form action="#" th:action="@{/facility}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
-
-        <label for="recycleMaterial"></label>
-        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="*{materialName}">
-
+        <div class="list-group" th:each="materialName : ${recyclableMaterial}">
+            <label for="recycleMaterial"></label>
+            <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:text="${materialName}">
+        </div>
         <label for="location"></label>
         <input type="text" id="location" name="recycleLocation" placeholder="Location">
 
