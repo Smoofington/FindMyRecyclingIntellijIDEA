@@ -2,6 +2,14 @@ package com.findmyrecycling.fmrenterprise.dto;
 
 import lombok.Data;
 
+/**
+ * Represents facility data
+ * facilityId: ID to track facility
+ * materialId: ID to track material
+ * facilityName: Name of facility
+ * facilityPhotos: Photo of facility
+ * facilityAddress: Address of facility
+ */
 public @Data
 class Facility {
     private Long facilityId;
