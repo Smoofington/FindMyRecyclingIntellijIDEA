@@ -2,6 +2,11 @@ package com.findmyrecycling.fmrenterprise.dto;
 
 import lombok.Data;
 
+/**
+ *Represents recyclable material
+ * materialId: ID to track material
+ * materialName: Name of material
+ */
 public @Data
 class RecyclableMaterial {
 

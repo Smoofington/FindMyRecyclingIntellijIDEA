@@ -2,6 +2,13 @@ package com.findmyrecycling.fmrenterprise.dto;
 
 import lombok.Data;
 
+/**
+ * Represents facility photo
+ * photoId: ID to track photo
+ * localUri: URI of photo
+ * description: Description of photo
+ * dateAdded: Timestamp of photo
+ */
 public @Data
 class Photo {
 

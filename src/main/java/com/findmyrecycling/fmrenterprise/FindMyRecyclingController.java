@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class FindMyRecyclingController {
@@ -26,7 +25,8 @@ public class FindMyRecyclingController {
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
         facility.setFacilityAddress("");
-        model.addAttribute(recyclableMaterial);
+        model.addAttribute("recyclableMaterial", recyclableMaterial);
+        model.addAttribute("facility", facility);
         return "index";
     }
 
