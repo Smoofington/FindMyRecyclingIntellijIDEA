@@ -1,7 +1,9 @@
 package com.findmyrecycling.fmrenterprise.dto;
 
 import lombok.Data;
-
+/**
+ * 
+ */
 public @Data
 class Facility {
     private Long facilityId;
