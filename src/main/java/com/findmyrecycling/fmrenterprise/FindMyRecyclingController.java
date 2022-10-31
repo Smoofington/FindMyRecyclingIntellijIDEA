@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+
 
 @Controller
 public class FindMyRecyclingController {
@@ -30,7 +30,7 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/addFacility.html")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
