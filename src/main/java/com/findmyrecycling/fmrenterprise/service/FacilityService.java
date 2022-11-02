@@ -23,7 +23,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public List<Facility> fetchAll(String searchTerm) {
+    public List<Facility> fetchAll() {
         return facilityDAO.fetchAll();
     }
 

@@ -10,7 +10,7 @@ public interface IFacilityService {
      * Fetch all facilities
      * @return list of facilities or null if none
      */
-    List<Facility> fetchAll(String searchTerm);
+    List<Facility> fetchAll();
 
     /**
      * Fetch facility using an ID
