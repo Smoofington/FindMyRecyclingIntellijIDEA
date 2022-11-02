@@ -40,8 +40,7 @@ public class FacilityDAO implements IFacilityDAO{
         IFacilityRetrofitDAO facilityRetrofitDAO = retrofitInstance.create(IFacilityRetrofitDAO.class);
         Call<List<Facility>> allFacilities = facilityRetrofitDAO.getFacility(term);
         Response<List<Facility>> execute = allFacilities.execute();
-        List<Facility> facilities = execute.body();
-        return facilities;
+        return execute.body();
     }
 
 }
