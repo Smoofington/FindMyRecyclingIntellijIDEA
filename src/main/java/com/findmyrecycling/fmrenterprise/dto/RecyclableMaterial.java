@@ -6,6 +6,9 @@ public @Data
 class RecyclableMaterial {
 
     private Long materialId;
+
+
+
     private String materialName;
 
 
@@ -16,11 +19,17 @@ class RecyclableMaterial {
     }
 
     public RecyclableMaterial() {
-
-       this.materialId = materialId;
-       this.materialName = materialName;
+        //Removed unneeded self assignment
+      // this.materialId = materialId;
+      // this.materialName = materialName;
+    }
+    public Long getMaterialId() {
+        return materialId;
     }
 
+    public String getMaterialName() {
+        return materialName;
+    }
 
     @java.lang.Override
     public java.lang.String toString() {
