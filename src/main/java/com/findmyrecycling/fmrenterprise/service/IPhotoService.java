@@ -14,16 +14,16 @@ public interface IPhotoService {
      * Display a photo on the screen
      * @param photo is a photo to be displayed
      */
-    void display(Photo photo);
+    void display(Photo photo) throws Exception;
     /**
      * Save photo
      * @param photo is a photo object
      * @return the photo that was saved
      */
-    Photo save(Photo photo);
+    Photo save(Photo photo) throws Exception;
     /**
      * Delete the record of the photo
      * @param id is a unique identifier for the photo
      */
-    void delete(int id);
+    void delete(int id) throws Exception;
 }
