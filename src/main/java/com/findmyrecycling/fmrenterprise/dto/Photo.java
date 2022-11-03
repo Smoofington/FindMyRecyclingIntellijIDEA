@@ -3,8 +3,8 @@ package com.findmyrecycling.fmrenterprise.dto;
 import lombok.Data;
 
 public @Data
+@NoArgsConstructor
 class Photo {
-
 
     private int photoId;
     private String localUri;

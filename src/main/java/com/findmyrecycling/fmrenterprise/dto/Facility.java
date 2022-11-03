@@ -3,12 +3,12 @@ package com.findmyrecycling.fmrenterprise.dto;
 import lombok.Data;
 
 public @Data
+@NoArgsConstructor
 class Facility {
     private Long facilityId;
     private Long materialId;
     private String facilityName;
     private String facilityPhotos;
-
 
     private String facilityAddress;
 
