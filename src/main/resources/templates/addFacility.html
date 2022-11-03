@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Add Facility</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <p>FindMyRecycling</p>
+    </div>
+
+    <ul class="nav">
+        <li><a href="index.html">Search</a></li>
+        <li><a href="addFacility.html">Add Faculty</a></li>
+    </ul>
+
+    <div class="findBox">
+
+        <p>Add a new Facility</p>
+
+        <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="POST">
+        <label for="facilityName"></label>
+        <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="*{facilityName}">
+
+        <label for="facilityAddress"></label>
+        <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="*{facilityAddress}">
+
+        <label for="facilityDetails"></label>
+        <input type="text" id="facilityDetails" name="facilityId" placeholder="Facility Details" th:field="*{facilityId}">
+
+
+         <input type="file" id="myfile" name="photoId" placeholder="Choose Photo" th:field="*{facilityPhotos}"/>
+
+        <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

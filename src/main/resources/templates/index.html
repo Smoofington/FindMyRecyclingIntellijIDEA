@@ -13,16 +13,16 @@
 
     <ul class="nav">
         <li><a href="index.html">Search</a></li>
-        <li><a href="AddFacility.html">Add Faculty</a></li>
+        <li><a href="addFacility.html">Add Faculty</a></li>
     </ul>
 
-    <form action="#" th:action="${/facility}" method="GET">
+    <form action="#" th:action="@{/facility}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
 
         <label for="recycleMaterial"></label>
-        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="*{materialName}">
+        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="*{recyclableMaterial.materialName}">
 
         <label for="location"></label>
         <input type="text" id="location" name="recycleLocation" placeholder="Location">

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class FindMyRecyclingController {
@@ -30,7 +29,7 @@ public class FindMyRecyclingController {
         return "index";
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/addFacility.html")
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
@@ -39,16 +38,21 @@ public class FindMyRecyclingController {
         facility.setFacilityId(110L);
         facility.setMaterialId(50L);
         model.addAttribute(facility);
-        return "AddFacility";
+        return "addFacility";
     }
 
-    @RequestMapping("/saveFacility")
-    public String saveFacility(Facility facility) {
+    @PostMapping("/saveFacility")
+    public String saveFacility(Facility facility, Model model) {
         facilityService.save(facility);
+        RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
+        Facility facilityModel = new Facility();
+        recyclableMaterial.setMaterialName("");
+        facilityModel.setFacilityAddress("");
+        model.addAttribute(recyclableMaterial);
         return "index";
     }
 
-    @GetMapping("/facility/")
+    @GetMapping("/facility")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
         List<Facility> facilities = facilityService.fetchAll();
         model.addAttribute("facilities", facilities);
