@@ -16,7 +16,6 @@ class RecyclableMaterial {
     }
 
     public RecyclableMaterial() {
-        this.materialId = materialId;
         this.materialName = materialName;
     }
 
