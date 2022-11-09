@@ -20,3 +20,4 @@ public interface IFacilityDAO {
 
     List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }
+
