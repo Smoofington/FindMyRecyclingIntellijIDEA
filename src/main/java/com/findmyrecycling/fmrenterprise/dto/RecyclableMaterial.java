@@ -19,6 +19,7 @@ class RecyclableMaterial {
         this.materialName = materialName;
     }
 
+
     @java.lang.Override
     public java.lang.String toString() {
         return "RecyclableMaterial{" +

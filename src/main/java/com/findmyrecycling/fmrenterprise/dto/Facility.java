@@ -8,6 +8,8 @@ class Facility {
     private Long materialId;
     private String facilityName;
     private String facilityPhotos;
+
+
     private String facilityAddress;
 
     public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {

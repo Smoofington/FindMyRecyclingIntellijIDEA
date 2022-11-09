@@ -5,12 +5,13 @@ import lombok.Data;
 public @Data
 class Photo {
 
-    private Long photoId;
+
+    private int photoId;
     private String localUri;
     private String description;
     private String dateAdded;
 
-    public Photo(Long photoId, String localUri, String description, String dateAdded) {
+    public Photo(int photoId, String localUri, String description, String dateAdded) {
         this.photoId = photoId;
         this.localUri = localUri;
         this.description = description;

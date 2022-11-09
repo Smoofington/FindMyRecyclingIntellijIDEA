@@ -46,7 +46,7 @@ public class FacilityDAOStub implements IFacilityDAO{
         for(Facility facility: facilities) {
             if (facility.getFacilityId() == id) {
                 facilities.remove(i);
-                break;
+                return;
             }
             i++;
         }

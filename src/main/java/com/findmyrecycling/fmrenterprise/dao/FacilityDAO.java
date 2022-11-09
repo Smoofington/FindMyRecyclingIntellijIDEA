@@ -3,7 +3,11 @@ package com.findmyrecycling.fmrenterprise.dao;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +15,7 @@ import java.util.List;
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {
-        return null;
+        return facility;
     }
 
     @Override
@@ -31,7 +35,13 @@ public class FacilityDAO implements IFacilityDAO{
     }
 
     @Override
-    public List<Facility> fetchByGlobalSearch(String term) {
-        return null;
+    public List<Facility> fetchByGlobalSearch(String term) throws IOException {
+        Retrofit retrofitInstance = RetrofitClientInstance.getRetrofitInstance();
+        IFacilityRetrofitDAO facilityRetrofitDAO = retrofitInstance.create(IFacilityRetrofitDAO.class);
+        Call<List<Facility>> allFacilities = facilityRetrofitDAO.getFacility(term);
+        Response<List<Facility>> execute = allFacilities.execute();
+        List<Facility> facilities = execute.body();
+        return facilities;
     }
+
 }

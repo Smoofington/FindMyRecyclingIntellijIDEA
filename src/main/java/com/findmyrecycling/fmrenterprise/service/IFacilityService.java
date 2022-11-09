@@ -2,7 +2,7 @@ package com.findmyrecycling.fmrenterprise.service;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 
-
+import java.io.IOException;
 import java.util.List;
 
 public interface IFacilityService {
@@ -13,9 +13,9 @@ public interface IFacilityService {
     List<Facility> fetchAll();
 
     /**
-     * Fetch all facilities using an ID
+     * Fetch facility using an ID
      * @param id a unique identifier for a facility
-     * @return list of facilities or null if none
+     * @return facility or null if none
      */
     Facility fetchById(int id);
 
@@ -37,5 +37,5 @@ public interface IFacilityService {
      * @param term String to check against all params of facilities
      * @return a list of facilities that match the params
      */
-    List<Facility> fetchByGlobalSearch(String term);
+    List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }
