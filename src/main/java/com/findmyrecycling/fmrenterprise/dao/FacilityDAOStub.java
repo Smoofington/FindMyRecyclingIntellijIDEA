@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 public class FacilityDAOStub implements IFacilityDAO{
 
-    private List<Facility> facilities = new ArrayList<>() {
+    private final List<Facility> facilities = new ArrayList<>() {
         {
             add(new Facility(1L, 1L, "Facility", "Photo", "4 Carpenters Run, Blue Ash, OH 45241"));
             add(new Facility(2L, 2L, "Facility2", "Photo", "6905 Plainfield Rd, Silverton, OH 45236"));
