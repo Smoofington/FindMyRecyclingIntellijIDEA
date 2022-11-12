@@ -2,19 +2,28 @@ package com.findmyrecycling.fmrenterprise.dto;
 
 import lombok.Data;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "facilities")
 public @Data
 class Facility {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long facilityId;
-    private Long materialId;
     private String facilityName;
-    private String facilityPhotos;
-
-
     private String facilityAddress;
+    @OneToMany(mappedBy = "facility")
+    private List<Photo> facilityPhotos;
 
-    public Facility(Long facilityId, Long materialId, String facilityName, String facilityPhotos, String facilityAddress) {
+    @ManyToOne
+    @JoinColumn(name = "material_id")
+    private RecyclableMaterial recyclableMaterial;
+
+    public Facility(Long facilityId,RecyclableMaterial recyclableMaterial, String facilityName, List<Photo> facilityPhotos, String facilityAddress) {
         this.facilityId = facilityId;
-        this.materialId = materialId;
+        this.recyclableMaterial = recyclableMaterial;
         this.facilityName = facilityName;
         this.facilityPhotos = facilityPhotos;
         this.facilityAddress = facilityAddress;
@@ -28,7 +37,7 @@ class Facility {
     public java.lang.String toString() {
         return "Facility{" +
                 "facilityId=" + facilityId +
-                ", materialId=" + materialId +
+                ", materialId=" + recyclableMaterial.getMaterialId() +
                 ", facilityName='" + facilityName + '\'' +
                 ", facilityPhotos='" + facilityPhotos + '\'' +
                 ", facilityAddress='" + facilityAddress + '\'' +
