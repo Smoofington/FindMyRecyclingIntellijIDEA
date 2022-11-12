@@ -25,11 +25,21 @@ jobs: # a collection of steps
           name: Wait for Database Connection
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
-      - run: sudo apt-get update
-      - run: sudo apt-get install mysql-client # Install mysql client
+      - run: 
+          name: Update Packages
+          command: sudo apt-get update
+          
+      - run: 
+          name: Install MySQL-Client
+          command: sudo apt-get install mysql-client # Install mysql client
 
-      - run: mysql -h 127.0.0.1 -u root -e "create database recycling" # create database
-      - run: mysql -h 127.0.0.1 -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'temporarypassword';GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;" # create user
+      - run: 
+          name: Create Database
+          command: mysql -h 127.0.0.1 -u root -e "create database recycling" # create database
+
+      - run: 
+          name: Create Database User
+          command: mysql -h 127.0.0.1 -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'temporarypassword';GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;" # create user
 
       - run: mvn dependency:go-offline # gets the project dependencies
 
