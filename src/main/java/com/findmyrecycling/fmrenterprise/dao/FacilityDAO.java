@@ -8,10 +8,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component("facilityDAO")
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {
@@ -24,13 +23,12 @@ public class FacilityDAO implements IFacilityDAO{
     }
 
     @Override
-    @Nullable
-    public Facility fetchById(int id) {
+    public Facility fetchById(long id) {
         return null;
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
 
     }
 
