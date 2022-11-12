@@ -25,7 +25,8 @@ jobs: # a collection of steps
           name: Wait for Database Connection
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
-      - run: sudo apt install mysql-client # Install mysql client
+      - run: sudo apt-get update
+      - run: sudo apt-get install mysql-client # Install mysql client
 
       - run: mysql -h 127.0.0.1 -u admin -p temporarypassword -e "create database recycling" # create database
 
