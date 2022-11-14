@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -33,10 +34,10 @@ public class FindMyRecyclingController {
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
-        facility.setFacilityPhotos("");
+        facility.setFacilityPhotos(new ArrayList<>());
         facility.setFacilityAddress("5764 Hills Drive");
         facility.setFacilityId(110L);
-        facility.setMaterialId(50L);
+        facility.getRecyclableMaterial().setMaterialId(50L);
         model.addAttribute(facility);
         return "AddFacility";
     }

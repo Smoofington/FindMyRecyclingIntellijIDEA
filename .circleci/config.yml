@@ -6,6 +6,12 @@ jobs: # a collection of steps
 
     docker: # run the steps with Docker
       - image: circleci/openjdk:11-stretch # ...with this image as the primary container; this is where all `steps` will run
+        environment:
+          DB_ROOT_USER: admin
+          DB_URL: jdbc:mysql://localhost:3306/recycling
+          DB_DRIVER: com.mysql.cj.jdbc.Driver
+          DB_PASS: temporarypassword
+      - image: circleci/mysql:5.7.36
 
     steps: # a collection of executable commands
 
@@ -14,6 +20,26 @@ jobs: # a collection of steps
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+
+      - run:
+          name: Wait for Database Connection
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run: 
+          name: Update Packages
+          command: sudo apt-get update
+          
+      - run: 
+          name: Install MySQL-Client
+          command: sudo apt-get install mysql-client # Install mysql client
+
+      - run: 
+          name: Create Database
+          command: mysql -h 127.0.0.1 -u root -e "create database recycling" # create database
+
+      - run: 
+          name: Create Database User
+          command: mysql -h 127.0.0.1 -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'temporarypassword';GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;" # create user
 
       - run: mvn dependency:go-offline # gets the project dependencies
 
