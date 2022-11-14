@@ -1,10 +1,9 @@
 package com.findmyrecycling.fmrenterprise;
 
-import com.findmyrecycling.fmrenterprise.dao.FacilityDAO;
 import com.findmyrecycling.fmrenterprise.dao.FacilityDAOStub;
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
-import com.findmyrecycling.fmrenterprise.service.FacilityService;
+import com.findmyrecycling.fmrenterprise.service.FacilityServiceStub;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -42,7 +41,7 @@ class FmRenterpriseApplicationTests {
     }
 
     private void givenFacilityDataIsAvailable() {
-        facilityService = new FacilityService(new FacilityDAOStub());
+        facilityService = new FacilityServiceStub(new FacilityDAOStub());
     }
 
     private void whenSearchLocationWithAddressZipCode45236() throws IOException {
@@ -75,7 +74,7 @@ class FmRenterpriseApplicationTests {
 
     private void thenFacilityShouldBeAddedToSavedFacilities() {
         Mockito.when(facilityDAO.save(testFacility)).thenReturn(testFacility);
-        facilityService = new FacilityService(facilityDAO);
+        facilityService = new FacilityServiceStub(facilityDAO);
 
         Facility createdFacility = facilityService.save(testFacility);
         assertEquals(createdFacility, testFacility);
@@ -86,7 +85,7 @@ class FmRenterpriseApplicationTests {
     private void thenReturnFacilityWithID4() {
         int idToFetch = 4;
         Mockito.when(facilityDAO.fetchById(idToFetch)).thenReturn(testFacility);
-        facilityService = new FacilityService(facilityDAO);
+        facilityService = new FacilityServiceStub(facilityDAO);
 
         Facility fetchedFacility = facilityService.fetchById(4);
         assertEquals(fetchedFacility.getFacilityId(), idToFetch);

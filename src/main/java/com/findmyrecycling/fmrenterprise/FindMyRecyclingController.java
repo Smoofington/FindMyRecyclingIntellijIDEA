@@ -4,11 +4,14 @@ import com.findmyrecycling.fmrenterprise.dto.Facility;
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +29,9 @@ public class FindMyRecyclingController {
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
         facility.setFacilityAddress("");
+        facility.setMaterialId(1L);
         model.addAttribute(recyclableMaterial);
+        model.addAttribute(facility);
         return "index";
     }
 
@@ -60,11 +65,17 @@ public class FindMyRecyclingController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
-    public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) throws IOException {
-        List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
-        return facilities;
+    @GetMapping(value = "/facility", consumes = "application/json", produces = "application/json")
+    public ResponseEntity searchFacilities(@RequestParam(value="term", required = false, defaultValue = "None") String term) {
+        try{
+            List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            return new ResponseEntity(facilities, headers, HttpStatus.OK);
+        } catch (IOException e){
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/facility/{id}/")

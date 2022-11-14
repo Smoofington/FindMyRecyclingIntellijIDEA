@@ -9,16 +9,16 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class FacilityService implements IFacilityService{
+public class FacilityServiceStub implements IFacilityService{
 
     @Autowired
     IFacilityDAO facilityDAO;
 
-    public FacilityService() {
+    public FacilityServiceStub() {
 
     }
 
-    public FacilityService(IFacilityDAO facilityDAO) {
+    public FacilityServiceStub(IFacilityDAO facilityDAO) {
         this.facilityDAO = facilityDAO;
     }
 
