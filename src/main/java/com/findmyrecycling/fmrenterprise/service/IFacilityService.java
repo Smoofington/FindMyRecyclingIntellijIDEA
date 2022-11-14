@@ -30,7 +30,7 @@ public interface IFacilityService {
      * Delete the record of the facility
      * @param id is a unique identifier for the facility
      */
-    void delete(int id);
+    void delete(int id) throws Exception;
 
     /**
      * Fetch the facilities by given params.

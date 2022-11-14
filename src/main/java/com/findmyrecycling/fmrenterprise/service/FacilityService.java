@@ -3,6 +3,7 @@ package com.findmyrecycling.fmrenterprise.service;
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    @Cacheable("facility")
+    @Cacheable(value="facility", key="#id")
     public Facility fetchById(int id) {
         return facilityDAO.fetchById(id);
     }
@@ -41,8 +42,9 @@ public class FacilityService implements IFacilityService{
     }
 
     @Override
-    public void delete(int id) {
-
+    @CacheEvict(value="facility", key="#id")
+    public void delete(int id) throws Exception{
+        facilityDAO.delete(id);
     }
 
     @Override
