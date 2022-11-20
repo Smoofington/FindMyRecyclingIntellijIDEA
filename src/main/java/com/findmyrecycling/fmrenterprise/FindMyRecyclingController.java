@@ -22,42 +22,66 @@ public class FindMyRecyclingController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
-        Facility facility = new Facility();
-        recyclableMaterial.setMaterialName("");
-        facility.setFacilityAddress("");
-        model.addAttribute(recyclableMaterial);
-        return "index";
+        try {
+            RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
+            Facility facility = new Facility();
+            recyclableMaterial.setMaterialName("");
+            facility.setFacilityAddress("");
+            model.addAttribute(recyclableMaterial);
+            return "index";
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @RequestMapping("/AddFacility.html")
     public String addFacilityPage(Model model) {
-        Facility facility = new Facility();
-        facility.setFacilityName("Bob's Junk-Yard");
-        facility.setFacilityPhotos(new ArrayList<>());
-        facility.setFacilityAddress("5764 Hills Drive");
-        facility.setFacilityId(110L);
-        facility.getRecyclableMaterial().setMaterialId(50L);
-        model.addAttribute(facility);
-        return "AddFacility";
+        try {
+            Facility facility = new Facility();
+            facility.setFacilityName("Bob's Junk-Yard");
+            facility.setFacilityPhotos(new ArrayList<>());
+            facility.setFacilityAddress("5764 Hills Drive");
+            facility.setFacilityId(110L);
+            facility.getRecyclableMaterial().setMaterialId(50L);
+            model.addAttribute(facility);
+            return "AddFacility";
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping("/saveFacility")
     public String saveFacility(Facility facility) {
-        facilityService.save(facility);
-        return "index";
+        try {
+            facilityService.save(facility);
+            return "index";
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
-        List<Facility> facilities = facilityService.fetchAll();
-        model.addAttribute("facilities", facilities);
-        return "facilities";
+        try {
+            List<Facility> facilities = facilityService.fetchAll();
+            model.addAttribute("facilities", facilities);
+            return "facilities";
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @GetMapping("/facility/{id}/")
     public ResponseEntity fetchFacilityById(@PathVariable("id") int id) {
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
@@ -69,18 +93,33 @@ public class FindMyRecyclingController {
 
     @DeleteMapping("/facility/{id}/")
     public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PatchMapping("/facility/{id}/")
     public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
     ) {
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PutMapping("/facility/")
     public ResponseEntity createFacility(@RequestBody Facility facility
     ) {
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (IOException e) {
+//            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 }
