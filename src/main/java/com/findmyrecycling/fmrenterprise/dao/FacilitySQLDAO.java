@@ -15,12 +15,18 @@ public class FacilitySQLDAO implements IFacilityDAO{
     @Autowired
     FacilityRepository facilityRepository;
 
+    /**
+     * @see IFacilityDAO#save(Facility) saveFacility
+     */
     @Override
     public Facility save(Facility facility) {
         Facility createdFacility = facilityRepository.save(facility);
         return createdFacility;
     }
 
+    /**
+     * @see IFacilityDAO#fetchAll() fetchAllFacilities
+     */
     @Override
     public List<Facility> fetchAll() {
         List<Facility> allFacilitiesList = new ArrayList<>();
@@ -31,17 +37,26 @@ public class FacilitySQLDAO implements IFacilityDAO{
         return allFacilitiesList;
     }
 
+    /**
+     * @see IFacilityDAO#fetchById(long) fetchFacilitiesById 
+     */
     @Override
     public Facility fetchById(long id) {
         Optional<Facility> retrievedFacility = facilityRepository.findById(id);
         return retrievedFacility.orElse(null);
     }
 
+    /**
+     * @see IFacilityDAO#delete(long) deleteFacilityById 
+     */
     @Override
     public void delete(long id) {
         facilityRepository.deleteById(id);
     }
 
+    /**
+     * @see IFacilityDAO#fetchByGlobalSearch(String) fetchFacilityByGlobalSearch
+     */
     @Override
     public List<Facility> fetchByGlobalSearch(String term) throws IOException {
         List<Facility> matchingFacilities = new ArrayList<>();

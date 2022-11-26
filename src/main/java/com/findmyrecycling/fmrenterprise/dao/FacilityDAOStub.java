@@ -18,17 +18,26 @@ public class FacilityDAOStub implements IFacilityDAO{
         }
     };
 
+    /**
+     * @see IFacilityDAO#save(Facility) saveFacility
+     */
     @Override
     public Facility save(Facility facility) {
         facilities.add(facility);
         return facility;
     }
 
+    /**
+     * @see IFacilityDAO#fetchAll() fetchAllFacilities
+     */
     @Override
     public List<Facility> fetchAll() {
         return facilities;
     }
 
+    /**
+     * @see IFacilityDAO#fetchById(long) fetchFacilityById 
+     */
     @Override
     public Facility fetchById(long id) {
         for(Facility facility: facilities) {
@@ -39,6 +48,9 @@ public class FacilityDAOStub implements IFacilityDAO{
         return null;
     }
 
+    /**
+     * @see IFacilityDAO#delete(long) deleteFacilityById 
+     */
     @Override
     public void delete(long id) {
         int i = 0;
@@ -51,6 +63,9 @@ public class FacilityDAOStub implements IFacilityDAO{
         }
     }
 
+    /**
+     * @see IFacilityDAO#fetchByGlobalSearch(String) fetchFacilityByGlobalSearch 
+     */
     @Override
     public List<Facility> fetchByGlobalSearch(String term) {
         List<Facility> matchingFacilities = new ArrayList<>();
