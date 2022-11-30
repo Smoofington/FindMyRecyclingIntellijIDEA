@@ -36,6 +36,7 @@ public interface IFacilityService {
      * Fetch the facilities by given params.
      * @param term String to check against all params of facilities
      * @return a list of facilities that match the params
+     * @throws IOException when user input cannot be processed
      */
     List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }
