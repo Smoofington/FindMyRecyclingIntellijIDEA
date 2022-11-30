@@ -10,7 +10,7 @@ public interface IFacilityService {
      * Fetch all facilities
      * @return list of facilities or null if none
      */
-    List<Facility> fetchAll(String searchTerm);
+    List<Facility> fetchAll();
 
     /**
      * Fetch facility using an ID
@@ -30,7 +30,7 @@ public interface IFacilityService {
      * Delete the record of the facility
      * @param id is a unique identifier for the facility
      */
-    void delete(int id);
+    void delete(int id) throws Exception;
 
     /**
      * Fetch the facilities by given params.

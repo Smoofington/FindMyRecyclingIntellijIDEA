@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import retrofit2.Response;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class FindMyRecyclingController {
@@ -29,7 +29,7 @@ public class FindMyRecyclingController {
         Facility facility = new Facility();
         recyclableMaterial.setMaterialName("");
         facility.setFacilityAddress("");
-        facility.setMaterialId(1L);
+        facility.setFacilityId(1L);
         model.addAttribute(recyclableMaterial);
         model.addAttribute(facility);
         return "index";
@@ -39,10 +39,10 @@ public class FindMyRecyclingController {
     public String addFacilityPage(Model model) {
         Facility facility = new Facility();
         facility.setFacilityName("Bob's Junk-Yard");
-        facility.setFacilityPhotos("");
+        facility.setFacilityPhotos(new ArrayList<>());
         facility.setFacilityAddress("5764 Hills Drive");
         facility.setFacilityId(110L);
-        facility.setMaterialId(50L);
+        facility.getRecyclableMaterial().setMaterialId(50L);
         model.addAttribute(facility);
         return "AddFacility";
     }
@@ -55,7 +55,7 @@ public class FindMyRecyclingController {
 
     @GetMapping("/facility/")
     public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
-        List<Facility> facilities = facilityService.fetchAll(searchTerm);
+        List<Facility> facilities = facilityService.fetchAll();
         model.addAttribute("facilities", facilities);
         return "facilities";
     }
