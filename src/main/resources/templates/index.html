@@ -34,12 +34,12 @@
 
     <div class="box2">
         <p>List of Facility's</p>
-        <p th:text="${facility}"></p>
-
+        <div class="list-group" th:each="facility : ${facilities}">
+            <a href="#" class="list-group-item list-group-item-action">
+                <p th:text="${facility}"></p>
+            </a>
+        </div>
     </div>
-
-
-
 
 </body>
 </html>
