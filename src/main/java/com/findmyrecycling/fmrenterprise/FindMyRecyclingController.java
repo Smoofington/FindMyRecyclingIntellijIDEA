@@ -36,7 +36,7 @@ public class FindMyRecyclingController {
 
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/facility/add.html")
     public String addFacilityPage(Model model) {
         try {
             Facility facility = new Facility();
@@ -46,7 +46,7 @@ public class FindMyRecyclingController {
             facility.setFacilityId(110L);
             facility.getRecyclableMaterial().setMaterialId(50L);
             model.addAttribute(facility);
-            return "AddFacility";
+            return "add-facility";
         } catch (Exception e) {
             return "error";
             // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
