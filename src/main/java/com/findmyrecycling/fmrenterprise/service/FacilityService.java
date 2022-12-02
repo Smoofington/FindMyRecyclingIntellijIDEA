@@ -4,6 +4,7 @@ import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,6 @@ public class FacilityService implements IFacilityService{
      * @see IFacilityService#fetchAll() fetchAllFacilities
      */
     @Override
-    @Cacheable("facilities")
     public List<Facility> fetchAll() {
         return facilityDAO.fetchAll();
     }
@@ -46,6 +46,7 @@ public class FacilityService implements IFacilityService{
      * @see IFacilityService#save(Facility) saveFacility
      */
     @Override
+    @CachePut(value = "facility", key = "#facility.facilityId")
     public Facility save(Facility facility) {
         return facilityDAO.save(facility);
     }
@@ -63,7 +64,6 @@ public class FacilityService implements IFacilityService{
      * @see IFacilityService#fetchByGlobalSearch(String) fetchFacilitiesByGlobalSearch 
      */
     @Override
-    @Cacheable("areas")
     public List<Facility> fetchByGlobalSearch(String term) throws IOException {
         return facilityDAO.fetchByGlobalSearch(term);
     }

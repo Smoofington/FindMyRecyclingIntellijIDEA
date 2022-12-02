@@ -6,7 +6,11 @@ import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import com.findmyrecycling.fmrenterprise.service.IRecyclableMaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -49,13 +54,7 @@ public class FindMyRecyclingController {
             Photo photo = new Photo();
             photo.setBase64(base64String);
             facility.setPhoto(photo);
-        } catch (IOException e) {
-            mv.setViewName("error");
-            return mv;
-        }
-        try {
             facilityService.save(facility);
-
             mv.setViewName("index");
             return mv;
         } catch (Exception e) {
@@ -66,28 +65,20 @@ public class FindMyRecyclingController {
 
     }
 
-    @GetMapping("/facility/")
-    public String fetchAllFacilities(@RequestParam(value="searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
+    @GetMapping(value = "/materialJSON", produces = "application/json")
+    public ResponseEntity fetchMaterialJSON() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
         try {
-            List<Facility> facilities = facilityService.fetchAll();
-            model.addAttribute("facilities", facilities);
-            return "facilities";
-        } catch (Exception e) {
-            return "error";
-            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            List<RecyclableMaterial> materials = recyclableMaterialService.fetchAll();
+            for(RecyclableMaterial material : materials) {
+                material.setFacility(null);
+            }
+            return new ResponseEntity(materials , headers, HttpStatus.OK);
         }
-
-    }
-
-    @GetMapping("/facility/{id}/")
-    public ResponseEntity fetchFacilityById(@PathVariable("id") int id) {
-        try {
-            return new ResponseEntity(HttpStatus.OK);
-        } catch (Exception e) {
-
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        catch (Exception e) {
+            return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
     @GetMapping(value = "/search")
@@ -99,34 +90,49 @@ public class FindMyRecyclingController {
         return mv;
     }
 
-    @DeleteMapping("/facility/{id}/")
-    public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
+    @GetMapping("/facility/delete/{id}/")
+    public ModelAndView deleteFacilityById(@PathVariable("id") int id, Facility facility) {
+        ModelAndView mv = new ModelAndView();
         try {
-            return new ResponseEntity(HttpStatus.OK);
+            facilityService.delete(id);
+            mv.setViewName("index");
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            mv.setViewName("error");
         }
+        return mv;
     }
 
-    @PatchMapping("/facility/{id}/")
-    public ResponseEntity updateFacilityById(@RequestBody Facility facility, @PathVariable("id") int id
+    @GetMapping("/facility/{id}/")
+    public ModelAndView getFacilityById(@PathVariable("id") int id
     ) {
+        ModelAndView mv = new ModelAndView();
         try {
-            return new ResponseEntity(HttpStatus.OK);
+            List<RecyclableMaterial> allMaterials = recyclableMaterialService.fetchAll();
+            Facility facility = facilityService.fetchById(id);
+            mv.addObject(facility);
+            mv.addObject(allMaterials);
+            mv.setViewName("edit");
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            mv.setViewName("error");
         }
-
+        return mv;
     }
 
-    @PutMapping("/facility/")
-    public ResponseEntity createFacility(@RequestBody Facility facility
+    @PostMapping("/facility/{id}/")
+    public ModelAndView updateFacility(@PathVariable("id") Long id, MultipartFile file, Facility facility
     ) {
+        ModelAndView mv = new ModelAndView();
         try {
-            return new ResponseEntity(HttpStatus.OK);
+            byte[] byteData = file.getBytes();
+            String base64String = Base64.getEncoder().encodeToString(byteData);
+            facility.getPhoto().setBase64(base64String);
+            facility.setFacilityId(id);
+            facilityService.save(facility);
+            mv.setViewName("index");
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            e.printStackTrace();
+            mv.setViewName("error");
         }
-
+        return mv;
     }
 }

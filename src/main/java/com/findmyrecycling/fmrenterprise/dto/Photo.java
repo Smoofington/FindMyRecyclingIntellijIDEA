@@ -2,7 +2,9 @@ package com.findmyrecycling.fmrenterprise.dto;
 
 import ch.qos.logback.classic.db.names.ColumnName;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.springframework.cache.annotation.CacheEvict;
 
 import javax.persistence.*;
 
@@ -16,6 +18,7 @@ class Photo {
     @Column(length = 2147483647)
     private String base64;
 
+    @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @OneToOne(mappedBy = "photo")
     private Facility facility;

@@ -40,7 +40,7 @@ class Facility {
                 "facilityId=" + facilityId +
                 ", materialId=" + recyclableMaterial.getMaterialName() +
                 ", facilityName='" + facilityName + '\'' +
-                ", facilityPhotos='" + photo.toString() + '\'' +
+                ", facilityPhotos='" + photo.getPhotoId() + '\'' +
                 ", facilityAddress='" + facilityAddress + '\'' +
                 '}';
     }

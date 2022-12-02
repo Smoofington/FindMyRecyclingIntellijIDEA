@@ -15,14 +15,30 @@
 <body>
   <div th:replace="fragments/topnav :: navbar"></div>
   <div>
-    <ul class="list-group">
-      <li th:each="facility : ${facilityList}" class="list-group-item">
-        <p th:text="|Facility: ${facility.facilityName} Address: ${facility.facilityAddress}|"></p>
-        <img th:src="|data:image/png;base64,${facility.photo.base64}|" src="" alt=""/>
-        <a class="btn" th:href="@{/facility/{id}/(id = ${facility.facilityId})}">Update</a>
-        <a class="btn" th:href="@{/facility/delete/{id}/(id = ${facility.facilityId})}">Delete</a>
-      </li>
-    </ul>
+    <p th:text="|Facility: ${facility.facilityName} Address: ${facility.facilityAddress}|"></p>
+    <img th:src="|data:image/png;base64,${facility.photo.base64}|" src="" alt=""/>
   </div>
+
+  <p>Edit Facility Details:</p>
+
+  <form action="#" th:action="@{/facility/{id}/(id = ${facility.facilityId})}" th:object="${facility}" th:method="post" enctype="multipart/form-data">
+    <label for="facilityName"></label>
+    <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="${facility.facilityName}">
+
+    <label for="facilityAddress"></label>
+    <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="${facility.facilityAddress}">
+
+    <label for="material"></label>
+    <select id="material" name="material" th:field="${facility.recyclableMaterial.materialId}">
+      <option th:each="material : ${recyclableMaterialList}" th:value="${material.materialId}" th:text="${material.materialName}"></option>
+    </select>
+
+    <label for="photos"></label>
+    <input class="form-control-file" type="file" id="photos" name="file">
+    <input type="hidden" th:value="${facility.photo}" th:field="${facility.photo}">
+
+    <input type="submit" value="Submit">
+  </form>
+
 </body>
 </html>
