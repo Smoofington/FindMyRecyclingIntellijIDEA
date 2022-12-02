@@ -9,7 +9,6 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 import java.util.List;
 
-@Repository("facilityDAO")
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {

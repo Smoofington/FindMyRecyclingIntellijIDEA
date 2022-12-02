@@ -1,5 +1,6 @@
 package com.findmyrecycling.fmrenterprise.dto;
 
+import ch.qos.logback.classic.db.names.ColumnName;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,23 +13,17 @@ class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int photoId;
-    private String fileName;
-    private String localUri;
-    private String description;
-    private String dateAdded;
+    @Column(length = 2147483647)
+    private String base64;
 
     @ToString.Exclude
-    @ManyToOne
-    @JoinColumn(name="facility_id")
+    @OneToOne(mappedBy = "photo")
     private Facility facility;
 
     @java.lang.Override
     public java.lang.String toString() {
         return "Photo{" +
                 "photoId=" + photoId +
-                ", localUri='" + localUri + '\'' +
-                ", description='" + description + '\'' +
-                ", dateAdded='" + dateAdded + '\'' +
                 '}';
     }
 }

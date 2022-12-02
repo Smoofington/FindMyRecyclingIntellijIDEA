@@ -22,18 +22,20 @@
 
         <p>Add a new Facility</p>
 
-        <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="GET">
+        <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="post" enctype="multipart/form-data">
         <label for="facilityName"></label>
         <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="${facility.facilityName}">
 
         <label for="facilityAddress"></label>
         <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="${facility.facilityAddress}">
 
-        <label for="facilityDetails"></label>
-        <input type="text" id="facilityDetails" name="facilityId" placeholder="Facility Details" th:field="${facility.facilityId}">
+        <label for="material"></label>
+        <select id="material" name="material" th:field="${facility.recyclableMaterial.materialId}">
+            <option th:each="material : ${recyclableMaterialList}" th:value="${material.materialId}" th:text="${material.materialName}"></option>
+        </select>
 
-
-         <input type="file" id="myfile" name="photoId" placeholder="Choose Photo" th:field="${facility.facilityPhotos}"/>
+        <label for="photos"></label>
+        <input class="form-control-file" type="file" id="photos" name="file">
 
         <input type="submit" value="Submit">
         </form>

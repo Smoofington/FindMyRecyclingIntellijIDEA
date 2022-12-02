@@ -19,7 +19,7 @@ public class FacilityService implements IFacilityService{
     public FacilityService() {
 
     }
-    
+
     public FacilityService(IFacilityDAO facilityDAO) {
         this.facilityDAO = facilityDAO;
     }

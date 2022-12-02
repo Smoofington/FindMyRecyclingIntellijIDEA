@@ -2,6 +2,8 @@ package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 
+import java.util.List;
+
 public interface IRecyclableMaterialDAO {
     /**
      *
@@ -22,4 +24,10 @@ public interface IRecyclableMaterialDAO {
      * @param id the id of the material to delete
      */
     void delete(long id);
+
+    /**
+     *
+     * @return all materials in the database
+     */
+    List<RecyclableMaterial> fetchAll();
 }

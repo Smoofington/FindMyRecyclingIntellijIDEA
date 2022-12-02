@@ -18,13 +18,13 @@
 
     </div>
 
-    <form action="#" th:action="@{/facility}" th:object="${recyclableMaterial}" method="GET">
+    <form action="#" th:action="@{/facility}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
 
         <label for="recycleMaterial"></label>
-        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material" th:field="${recyclableMaterial.materialId}">
+        <input type="text" id="recycleMaterial" name="materialName" placeholder="Recyclable Material">
 
         <label for="location"></label>
         <input type="text" id="location" name="recycleLocation" placeholder="Location">

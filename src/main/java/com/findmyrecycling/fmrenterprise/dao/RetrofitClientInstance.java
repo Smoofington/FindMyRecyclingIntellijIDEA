@@ -1,5 +1,6 @@
 package com.findmyrecycling.fmrenterprise.dao;
 
+import org.springframework.data.repository.NoRepositoryBean;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

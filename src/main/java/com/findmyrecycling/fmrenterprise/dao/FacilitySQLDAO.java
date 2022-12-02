@@ -2,6 +2,7 @@ package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Primary
 @Repository("facilitySQLDAO")
 public class FacilitySQLDAO implements IFacilityDAO{
 

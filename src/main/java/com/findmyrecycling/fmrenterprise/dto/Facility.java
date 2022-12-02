@@ -14,18 +14,19 @@ class Facility {
     private Long facilityId;
     private String facilityName;
     private String facilityAddress;
-    @OneToMany(mappedBy = "facility")
-    private List<Photo> facilityPhotos;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "photo_id")
+    private Photo photo;
 
     @ManyToOne
     @JoinColumn(name = "material_id")
     private RecyclableMaterial recyclableMaterial;
 
-    public Facility(Long facilityId,RecyclableMaterial recyclableMaterial, String facilityName, List<Photo> facilityPhotos, String facilityAddress) {
+    public Facility(Long facilityId,RecyclableMaterial recyclableMaterial, String facilityName, Photo photo, String facilityAddress) {
         this.facilityId = facilityId;
         this.recyclableMaterial = recyclableMaterial;
         this.facilityName = facilityName;
-        this.facilityPhotos = facilityPhotos;
+        this.photo = photo;
         this.facilityAddress = facilityAddress;
     }
 
@@ -37,9 +38,9 @@ class Facility {
     public String toString() {
         return "Facility{" +
                 "facilityId=" + facilityId +
-                ", materialId=" + recyclableMaterial.getMaterialId() +
+                ", materialId=" + recyclableMaterial.getMaterialName() +
                 ", facilityName='" + facilityName + '\'' +
-                ", facilityPhotos='" + facilityPhotos + '\'' +
+                ", facilityPhotos='" + photo.toString() + '\'' +
                 ", facilityAddress='" + facilityAddress + '\'' +
                 '}';
     }

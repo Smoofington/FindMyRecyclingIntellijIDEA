@@ -16,7 +16,10 @@
   <div th:replace="fragments/topnav :: navbar"></div>
   <div>
     <ul class="list-group">
-      <li th:each="facility : ${facilityList}" class="list-group-item" th:text="${facility.facilityName}"></li>
+      <li th:each="facility : ${facilityList}" class="list-group-item">
+        <p th:text="|Facility: ${facility.facilityName} Address: ${facility.facilityAddress}|"></p>
+        <img th:src="|data:image/png;base64,${facility.photo.base64}|" src="" alt=""/>
+      </li>
     </ul>
   </div>
 </body>
