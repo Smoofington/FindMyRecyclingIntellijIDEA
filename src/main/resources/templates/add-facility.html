@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>Add Facility</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -24,16 +24,16 @@
 
         <form action="#" th:action="@{/saveFacility}" th:object="${facility}" method="GET">
         <label for="facilityName"></label>
-        <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="facilityName">
+        <input type="text" id="facilityName" name="facility" placeholder="Facility Name" th:field="${facility.facilityName}">
 
         <label for="facilityAddress"></label>
-        <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="facilityAddress">
+        <input type="text" id="facilityAddress" name="facilityAddress" placeholder="Facility Address" th:field="${facility.facilityAddress}">
 
         <label for="facilityDetails"></label>
-        <input type="text" id="facilityDetails" name="facilityId" placeholder="Facility Details" th:field="facilityId">
+        <input type="text" id="facilityDetails" name="facilityId" placeholder="Facility Details" th:field="${facility.facilityId}">
 
 
-         <input type="file" id="myfile" name="photoId" placeholder="Choose Photo" th:field="photoId"/>
+         <input type="file" id="myfile" name="photoId" placeholder="Choose Photo" th:field="${facility.facilityPhotos}"/>
 
         <input type="submit" value="Submit">
         </form>

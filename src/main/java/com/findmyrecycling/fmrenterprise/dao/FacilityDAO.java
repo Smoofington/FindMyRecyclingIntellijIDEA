@@ -1,8 +1,7 @@
 package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
-import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -10,7 +9,7 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 import java.util.List;
 
-@Component("facilityDAO")
+@Repository("facilityDAO")
 public class FacilityDAO implements IFacilityDAO{
     @Override
     public Facility save(Facility facility) {

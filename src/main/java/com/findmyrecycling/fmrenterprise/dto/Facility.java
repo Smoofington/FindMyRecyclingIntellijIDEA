@@ -33,8 +33,8 @@ class Facility {
 
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Facility{" +
                 "facilityId=" + facilityId +
                 ", materialId=" + recyclableMaterial.getMaterialId() +

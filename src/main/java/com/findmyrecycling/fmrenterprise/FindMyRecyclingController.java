@@ -1,7 +1,9 @@
 package com.findmyrecycling.fmrenterprise;
 
+import com.findmyrecycling.fmrenterprise.dao.FacilitySQLDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
+import com.findmyrecycling.fmrenterprise.service.FacilityService;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +20,8 @@ import java.util.List;
 @Controller
 public class FindMyRecyclingController {
 
-    @Autowired
-    IFacilityService facilityService;
+//    @Autowired
+    IFacilityService facilityService = new FacilityService(new FacilitySQLDAO());
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -55,13 +58,22 @@ public class FindMyRecyclingController {
     }
 
     @RequestMapping("/saveFacility")
-    public String saveFacility(Facility facility) {
+    public ModelAndView saveFacility(Facility facility) {
+        ModelAndView mv = new ModelAndView();
         try {
+            RecyclableMaterial rm = new RecyclableMaterial();
+            rm.setMaterialName("Iron");
+            rm.setMaterialId(1L);
+            facility.setRecyclableMaterial(rm);
             facilityService.save(facility);
-            return "index";
+
+            mv.setViewName("index");
+            mv.addObject(rm);
+            return mv;
         } catch (Exception e) {
             e.printStackTrace();
-            return "error";
+            mv.setViewName("error");
+            return mv;
         }
 
     }
@@ -90,11 +102,20 @@ public class FindMyRecyclingController {
 
     }
 
-    @GetMapping(value = "/facility/search/{term}/", produces = "application/json")
-    public List<Facility> fetchFacilitiesByTerm(@PathVariable("term") String term
-    ) throws IOException {
-        List<Facility> facilities = facilityService.fetchByGlobalSearch(term);
-        return facilities;
+    @RequestMapping(value = "/search")
+    public String search(Model model) {
+        model.addAttribute(model);
+        return "search";
+    }
+
+    @GetMapping(value = "/search")
+    public ModelAndView search(@RequestParam(name = "searchTerm") String searchTerm) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        System.out.println("Get");
+        List<Facility> facilities = facilityService.fetchByGlobalSearch(searchTerm);
+        mv.setViewName("search");
+        mv.addObject(facilities);
+        return mv;
     }
 
     @DeleteMapping("/facility/{id}/")

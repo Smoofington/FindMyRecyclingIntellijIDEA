@@ -2,9 +2,11 @@ package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public class RecyclableMaterialSQLDAO implements IRecyclableMaterialDAO {
 
     @Autowired

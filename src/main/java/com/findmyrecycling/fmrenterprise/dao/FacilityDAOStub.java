@@ -2,12 +2,12 @@ package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository("facilityDAOStub")
 public class FacilityDAOStub implements IFacilityDAO{
 
     private final List<Facility> facilities = new ArrayList<>() {
