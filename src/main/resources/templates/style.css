@@ -62,40 +62,13 @@ text-decoration: none;
 
 .box {
     width: 500px;
-    height: 200px;
+    height: 300px;
     border: 1px solid black;
     padding: 50px;
     margin: auto;
     margin-top: 25px;
     font-family: Arial;
     font-size: 23px;
-}
-
-.box input[type=text], select {
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #D3D3D3;
-}
-
-.box input[type=submit] {
-    width: 30%;
-    background-color: #D3D3D3;
-    color: black;
-    padding: 14px 20px;
-    margin: 7px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-input[type=submit]:hover {
-    background-color: grey;
 }
 
 .box2 {
@@ -112,16 +85,16 @@ input[type=submit]:hover {
 
 .box2 p {
     text-align: center;
-    margin-top: 135px;
+    margin-top: 10px;
 }
 
 .findBox {
     width: 500px;
-    height: 250px;
+    height: 550px;
     border: 1px solid black;
     padding: 50px;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 40px;
     font-family: Arial;
     font-size: 23px;
 }
@@ -158,7 +131,7 @@ input[type=submit]:hover {
 }
 
 .findBox p {
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 
