@@ -30,12 +30,13 @@ public interface IFacilityService {
      * Delete the record of the facility
      * @param id is a unique identifier for the facility
      */
-    void delete(int id);
+    void delete(int id) throws Exception;
 
     /**
      * Fetch the facilities by given params.
      * @param term String to check against all params of facilities
      * @return a list of facilities that match the params
+     * @throws IOException when user input cannot be processed
      */
     List<Facility> fetchByGlobalSearch(String term) throws IOException;
 }

@@ -2,21 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>FindMyRecycling</title>
+    <title>Find My Recycling</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
-    <div class="header">
-    <p>FindMyRecycling</p>
+    <div th:replace="fragments/topnav :: navbar">
+
     </div>
 
-    <ul class="nav">
-        <li><a href="index.html">Search</a></li>
-        <li><a href="AddFacility.html">Add Faculty</a></li>
-    </ul>
-
-    <form action="#" th:action="${/facility}" method="GET">
+    <form action="#" th:action="@{/facility}" th:object="${recyclableMaterial}" method="GET">
     <div class="box">
         <p>Search for a recycling facility center near you!</p>
 
@@ -34,12 +36,12 @@
 
     <div class="box2">
         <p>List of Facility's</p>
-        <p th:text="${facility}"></p>
-
+        <div class="list-group" th:each="facility : ${facilities}">
+            <a href="#" class="list-group-item list-group-item-action">
+                <p th:text="${facility}"></p>
+            </a>
+        </div>
     </div>
-
-
-
 
 </body>
 </html>
