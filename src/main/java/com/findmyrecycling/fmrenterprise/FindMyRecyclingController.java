@@ -22,35 +22,36 @@ public class FindMyRecyclingController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        try {
+        //try {
             RecyclableMaterial recyclableMaterial = new RecyclableMaterial();
             Facility facility = new Facility();
             recyclableMaterial.setMaterialName("");
-            facility.setFacilityAddress("");
+            facility.setFacilityAddress("4433 Cooper Rd, Blue Ash, OH 45242");
+            facility.setFacilityName("Blue Ash Recreation Center");
             model.addAttribute(recyclableMaterial);
+            model.addAttribute(facility);
             return "index";
-        } catch (Exception e) {
-            return "error";
-            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        } catch (Exception e) {
+//            return "error";
+//            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
 
     }
 
-    @RequestMapping("/facility/add.html")
+    @RequestMapping("/facility/add")
     public String addFacilityPage(Model model) {
-        try {
+        //try {
             Facility facility = new Facility();
             facility.setFacilityName("Bob's Junk-Yard");
             facility.setFacilityPhotos(new ArrayList<>());
             facility.setFacilityAddress("5764 Hills Drive");
             facility.setFacilityId(110L);
-            facility.getRecyclableMaterial().setMaterialId(50L);
             model.addAttribute(facility);
             return "add-facility";
-        } catch (Exception e) {
-            return "error";
-            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        } catch (Exception e) {
+//            return "error";
+//            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
 
     @RequestMapping("/saveFacility")
