@@ -3,7 +3,7 @@ package com.findmyrecycling.fmrenterprise;
 import com.findmyrecycling.fmrenterprise.dao.IFacilityDAO;
 import com.findmyrecycling.fmrenterprise.dto.Facility;
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
-import com.findmyrecycling.fmrenterprise.service.FacilityService;
+import com.findmyrecycling.fmrenterprise.service.FacilityServiceStub;
 import com.findmyrecycling.fmrenterprise.service.IFacilityService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -43,7 +43,7 @@ class FmRenterpriseApplicationTests {
     }
 
     private void givenFacilityDataIsAvailable() {
-        facilityService = new FacilityService(facilityDAO);
+        facilityService = new FacilityServiceStub(facilityDAO);
         testFacilities.add(new Facility(1L, new RecyclableMaterial(1L, "Metal"), "Recycle Place", new ArrayList<>(), "Address 1"));
         testFacilities.add(new Facility(2L, new RecyclableMaterial(1L, "Metal"), "Center of Recycle", new ArrayList<>(), "Road 132"));
         testFacilities.add(new Facility(3L, new RecyclableMaterial(2L, "Glass"), "Batavia Recylcers", new ArrayList<>(), "Street 2893"));

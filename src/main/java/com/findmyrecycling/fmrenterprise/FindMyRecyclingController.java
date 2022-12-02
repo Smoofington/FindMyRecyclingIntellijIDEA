@@ -29,13 +29,14 @@ public class FindMyRecyclingController {
             facility.setFacilityAddress("");
             model.addAttribute(recyclableMaterial);
             return "index";
-        } catch (IOException e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            return "error";
+            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
 
-    @RequestMapping("/AddFacility.html")
+    @RequestMapping("/facility/add.html")
     public String addFacilityPage(Model model) {
         try {
             Facility facility = new Facility();
@@ -45,9 +46,10 @@ public class FindMyRecyclingController {
             facility.setFacilityId(110L);
             facility.getRecyclableMaterial().setMaterialId(50L);
             model.addAttribute(facility);
-            return "AddFacility";
-        } catch (IOException e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return "add-facility";
+        } catch (Exception e) {
+            return "error";
+            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -56,8 +58,9 @@ public class FindMyRecyclingController {
         try {
             facilityService.save(facility);
             return "index";
-        } catch (IOException e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
         }
 
     }
@@ -68,8 +71,9 @@ public class FindMyRecyclingController {
             List<Facility> facilities = facilityService.fetchAll();
             model.addAttribute("facilities", facilities);
             return "facilities";
-        } catch (IOException e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            return "error";
+            // return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
@@ -78,7 +82,8 @@ public class FindMyRecyclingController {
     public ResponseEntity fetchFacilityById(@PathVariable("id") int id) {
         try {
             return new ResponseEntity(HttpStatus.OK);
-        } catch (IOException e) {
+        } catch (Exception e) {
+
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -95,7 +100,7 @@ public class FindMyRecyclingController {
     public ResponseEntity deleteFacilityById(@PathVariable("id") int id) {
         try {
             return new ResponseEntity(HttpStatus.OK);
-        } catch (IOException e) {
+        } catch (Exception e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -105,7 +110,7 @@ public class FindMyRecyclingController {
     ) {
         try {
             return new ResponseEntity(HttpStatus.OK);
-        } catch (IOException e) {
+        } catch (Exception e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -116,8 +121,7 @@ public class FindMyRecyclingController {
     ) {
         try {
             return new ResponseEntity(HttpStatus.OK);
-        } catch (IOException e) {
-//            e.printStackTrace();
+        } catch (Exception e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
