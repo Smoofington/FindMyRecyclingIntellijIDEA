@@ -2,9 +2,13 @@ package com.findmyrecycling.fmrenterprise.dao;
 
 import com.findmyrecycling.fmrenterprise.dto.RecyclableMaterial;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class RecyclableMaterialSQLDAO implements IRecyclableMaterialDAO {
 
     @Autowired
@@ -34,5 +38,15 @@ public class RecyclableMaterialSQLDAO implements IRecyclableMaterialDAO {
     @Override
     public void delete(long id) {
         materialRepository.deleteById(id);
+    }
+
+    @Override
+    public List<RecyclableMaterial> fetchAll() {
+        List<RecyclableMaterial> allMaterialsList = new ArrayList<>();
+        Iterable<RecyclableMaterial> allMaterials = materialRepository.findAll();
+        for(RecyclableMaterial material : allMaterials) {
+            allMaterialsList.add(material);
+        }
+        return allMaterialsList;
     }
 }
